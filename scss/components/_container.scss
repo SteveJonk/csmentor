@@ -1,0 +1,9 @@
+.container,
+.is-style-container {
+  padding: 0 20px;
+
+  @include onlyDesktop {
+    max-width: 1450px;
+    margin: 0 auto;
+  }
+}

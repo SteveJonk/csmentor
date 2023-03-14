@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "es2018",
+      "dom" // 👈️ Add this
+    ],
+    "target": "es5",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+  }
+}
+  
