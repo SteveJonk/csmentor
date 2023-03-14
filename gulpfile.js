@@ -75,7 +75,7 @@ gulp.task('watch', function () {
     gulp.parallel('waitForStyles')
   )
   gulp.watch(
-    [settings.themeLocation + 'ts/**/*.ts', settings.themeLocation + 'ts/scripts.ts'],
+    [settings.themeLocation + 'ts/**/*.ts*', settings.themeLocation + 'ts/scripts.ts'],
     gulp.parallel('waitForScripts')
   )
 })
