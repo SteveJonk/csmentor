@@ -11,6 +11,7 @@ include "inc/navbar.php";
 include "inc/sidebars.php";
 include "inc/group-block-style.php";
 include "inc/image-block-style.php";
+@include "inc/react-components.php";
 
 
 function theme_features()

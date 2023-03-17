@@ -36,6 +36,9 @@
     "webpack-cli": "^5.0.1"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/material": "^5.11.13",
     "gulp-uglify": "^3.0.2",
     "postcss": "^8.3.6",
     "postcss-scss": "^2.0.0",

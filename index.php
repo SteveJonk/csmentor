@@ -8,6 +8,4 @@ while (have_posts()) {
 }
 ?>
 
-<div id="test"></div>
-
 <?php get_footer() ?>

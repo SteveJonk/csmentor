@@ -1,4 +1,4 @@
 import { injectReact } from './injectReact'
-import { Test } from './views/test'
+import { MentorFinder } from './views/MentorFinder'
 
-injectReact(Test, '#test')
+injectReact(MentorFinder, '#mentor-finder')
