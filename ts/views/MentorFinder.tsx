@@ -1,1 +1,7 @@
-export const MentorFinder = () => <h1>Hajeeeezzzz</h1>
+import { Container } from '@mui/material'
+
+export const MentorFinder = () => (
+  <Container maxWidth={'xl'}>
+    <h1>Hoi</h1>
+  </Container>
+)
