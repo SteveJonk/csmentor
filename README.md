@@ -1,4 +1,3 @@
-# Zinq Redesign
+# CS Mentor
 
-A redesign for the website of Zinq.
-It's a gsap powered website.
+A mentor finder for Customer Success Snack
