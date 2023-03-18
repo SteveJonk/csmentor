@@ -2,8 +2,15 @@
 
 function theme_resources()
 {
+    wp_enqueue_script('api', get_theme_file_uri('wpApiSettings.js'), NULL, '1.0.0', true);
+
     wp_enqueue_script('main-js', get_theme_file_uri('/dist/scripts.js'), NULL, '1.0.0', true);
     wp_enqueue_style('theme_main_css', get_stylesheet_uri(), NULL, '1.0.0');
+
+    wp_localize_script('api', 'wpApiSettings', array(
+        'nonce' => wp_create_nonce('wp_rest'),
+        'faunaKey' => 'fnAEtxTC6gAAzRMkWw6Ly6gJMrOnI49Gnd6R6xu7',
+    ));
     setlocale(LC_ALL, 'nl_NL');
 }
 

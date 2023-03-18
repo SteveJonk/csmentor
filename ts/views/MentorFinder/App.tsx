@@ -1,16 +1,13 @@
-import { Button, Container, Typography } from '@mui/material'
+import { CSQueryClientProvider } from '../../api/CSQueryClientProvider'
 import { CSThemeProvider } from '../../theme/ThemeProvider'
+import { Main } from './Main'
 
-export const App = () => (
-  <CSThemeProvider>
-    <Container maxWidth={'xl'}>
-      <Typography variant="h3">Hoi</Typography>
-      <Button color="primary" variant="contained">
-        Klik
-      </Button>
-      <Button color="secondary" variant="contained">
-        Klik
-      </Button>
-    </Container>
-  </CSThemeProvider>
-)
+export const App = () => {
+  return (
+    <CSQueryClientProvider>
+      <CSThemeProvider>
+        <Main />
+      </CSThemeProvider>
+    </CSQueryClientProvider>
+  )
+}
