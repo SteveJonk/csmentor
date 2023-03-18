@@ -50,7 +50,7 @@ gulp.task('minify', gulp.parallel('minify-js', 'minify-css'))
 
 gulp.task('scripts', function (callback) {
   webpack(require('./webpack.config.js'), function (err, stats) {
-    // console.log(stats.toString())
+    console.log(stats.toString())
 
     if (err) {
       console.log(err.toString())
