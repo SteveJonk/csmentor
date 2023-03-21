@@ -3,7 +3,11 @@
   padding: 0 20px;
 
   @include onlyDesktop {
-    max-width: 1450px;
+    max-width: 1000px;
     margin: 0 auto;
   }
+}
+
+section.has-background {
+  padding: 0;
 }
