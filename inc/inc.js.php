@@ -12,6 +12,13 @@ function theme_resources()
         'faunaKey' => 'fnAEtxTC6gAAzRMkWw6Ly6gJMrOnI49Gnd6R6xu7',
         'themeFolder' => get_template_directory_uri()
     ));
+
+    if (is_user_logged_in()) {
+        wp_localize_script('api', 'wpApiSettings', array(
+            'userLoggedIn' => true,
+        ));
+    }
+
     setlocale(LC_ALL, 'nl_NL');
 }
 

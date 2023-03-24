@@ -26,7 +26,7 @@ export const FilterHeader = () => {
 
   return (
     <div className="white-bg">
-      <Container sx={{ paddingY: 4 }}>
+      <Container maxWidth="xl" sx={{ paddingY: 4 }}>
         <Typography variant="h1" textAlign="center">
           Find a Customer Success Mentor That Fits Your Needs
         </Typography>

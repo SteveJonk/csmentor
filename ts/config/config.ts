@@ -6,6 +6,8 @@ export const config = {
   faunaKey: wpApiSettings?.faunaKey,
   // @ts-ignore
   themeFolder: wpApiSettings?.themeFolder,
+  // @ts-ignore
+  userLoggedIn: wpApiSettings?.userLoggedIn ? true : false,
 }
 
 export const paths = {
