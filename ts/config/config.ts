@@ -4,6 +4,8 @@ export const config = {
   nonce: wpApiSettings?.nonce,
   // @ts-ignore
   faunaKey: wpApiSettings?.faunaKey,
+  // @ts-ignore
+  themeFolder: wpApiSettings?.themeFolder,
 }
 
 export const endPoints = {
