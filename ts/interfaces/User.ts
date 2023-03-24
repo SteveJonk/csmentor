@@ -9,6 +9,7 @@ export interface User {
   meta: any[]
   acf: any[]
   _links: Links
+  user_email?: string
 }
 
 export interface Links {

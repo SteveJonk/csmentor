@@ -3,14 +3,15 @@ import LocationOnIcon from '@mui/icons-material/LocationOn'
 import StarIcon from '@mui/icons-material/Star'
 import { Box, Button, Grid, Paper, Typography } from '@mui/material'
 import Divider from '@mui/material/Divider'
-import { config } from '../../config/config'
+import { config, paths } from '../../config/config'
 import { User } from '../../interfaces/User'
 
 interface Props {
   user: User
+  onClickViewProfile: (user: User) => void
 }
 
-export const UserCard = ({ user }: Props) => (
+export const UserCard = ({ user, onClickViewProfile }: Props) => (
   <Paper elevation={1} sx={{ marginBottom: 2 }}>
     <Box padding={2}>
       <Grid container spacing={2} paddingBottom={3}>
@@ -25,8 +26,10 @@ export const UserCard = ({ user }: Props) => (
             }}
           />
           <Box>
-            <Typography variant="h2">{user.name}</Typography>
-            <Typography variant="h3" color="grey">
+            <Typography variant="h2" marginBottom={1}>
+              {user.name}
+            </Typography>
+            <Typography variant="h3" marginBottom={1} color="grey">
               Functie titel hier
             </Typography>
             <Typography
@@ -113,8 +116,15 @@ export const UserCard = ({ user }: Props) => (
             right={0}
             gap={0.5}
           >
-            <Button variant="outlined">Get in touch</Button>
-            <Button variant="contained">View Profile</Button>
+            <Button
+              variant="contained"
+              href={config.userLoggedIn ? `mailto:${user?.user_email}` : paths.login}
+            >
+              Get in touch
+            </Button>
+            <Button variant="outlined" onClick={() => onClickViewProfile(user)}>
+              View Profile
+            </Button>
           </Box>
         </Grid>
       </Grid>

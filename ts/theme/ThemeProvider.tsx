@@ -27,12 +27,10 @@ const theme = createTheme({
     h2: {
       fontSize: 20,
       fontWeight: 500,
-      marginBottom: '0.3em',
     },
     h3: {
       fontSize: 18,
       fontWeight: 300,
-      marginBottom: '0.3em',
     },
     h4: {
       fontSize: 14,
@@ -42,7 +40,15 @@ const theme = createTheme({
       color: CSThemeVars.grey,
     },
   },
-  components: {},
+  components: {
+    MuiLink: {
+      styleOverrides: {
+        underlineNone: {
+          cursor: 'pointer',
+        },
+      },
+    },
+  },
 })
 
 export const CSThemeProvider = ({ children }) => (
