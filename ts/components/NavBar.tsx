@@ -1,7 +1,8 @@
+import LoginIcon from '@mui/icons-material/Login'
 import { Box, Button, Link, Toolbar } from '@mui/material'
 import AppBar from '@mui/material/AppBar'
 
-import { config } from '../config/config'
+import { config, paths } from '../config/config'
 
 export const NavBar = () => (
   <AppBar position="relative" color="inherit">
@@ -13,8 +14,14 @@ export const NavBar = () => (
       <Button component={Link} href="/" variant="text" color="secondary" sx={{ marginRight: 1 }}>
         Home
       </Button>
-      <Button variant="contained" color="secondary">
-        Login
+      <Button
+        component={Link}
+        href={paths.login}
+        variant="contained"
+        color="secondary"
+        startIcon={<LoginIcon />}
+      >
+        Login / Register
       </Button>
     </Toolbar>
   </AppBar>

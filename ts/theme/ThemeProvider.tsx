@@ -29,6 +29,7 @@ const theme = createTheme({
       fontWeight: 500,
     },
   },
+  components: {},
 })
 
 export const CSThemeProvider = ({ children }) => (

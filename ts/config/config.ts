@@ -8,6 +8,10 @@ export const config = {
   themeFolder: wpApiSettings?.themeFolder,
 }
 
+export const paths = {
+  login: '/wp-login.php',
+}
+
 export const endPoints = {
   users: '/wp-json/wp/v2/users',
 }
