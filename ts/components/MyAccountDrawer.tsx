@@ -13,6 +13,7 @@ import {
 } from '@mui/material'
 import { TransitionProps } from '@mui/material/transitions'
 import { forwardRef, ReactElement } from 'react'
+import { useCurrentuser } from '../hooks/useCurentUser'
 import { CSThemeVars } from '../theme/CSThemeVars'
 
 // TODO: Add account fields
@@ -34,6 +35,10 @@ const Transition = forwardRef(function Transition(
 })
 
 export const MyAccountDrawer = ({ isOpen, onClose }: Props) => {
+  const { currentUser } = useCurrentuser()
+
+  if (!currentUser) return null
+
   return (
     <Dialog
       fullScreen
@@ -53,7 +58,9 @@ export const MyAccountDrawer = ({ isOpen, onClose }: Props) => {
       <Container maxWidth="xl">
         <Grid container marginTop={3} gap={1}>
           <Grid item xs={6} sm={4}>
-            <Typography variant="h3">Work in progress: form for account management</Typography>
+            <Typography variant="h3">
+              Work in progress: form for account management for {currentUser.name}
+            </Typography>
           </Grid>
           <Grid item xs={12}>
             <Link underline="none" onClick={onClose}>

@@ -1,3 +1,4 @@
+import EmailIcon from '@mui/icons-material/Email'
 import LanguageIcon from '@mui/icons-material/Language'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
 import StarIcon from '@mui/icons-material/Star'
@@ -116,14 +117,15 @@ export const UserCard = ({ user, onClickViewProfile }: Props) => (
             right={0}
             gap={0.5}
           >
+            <Button variant="outlined" onClick={() => onClickViewProfile(user)}>
+              View Profile
+            </Button>
             <Button
               variant="contained"
               href={config.userLoggedIn ? `mailto:${user?.user_email}` : paths.login}
             >
+              <EmailIcon sx={{ marginRight: 1 }} />
               Get in touch
-            </Button>
-            <Button variant="outlined" onClick={() => onClickViewProfile(user)}>
-              View Profile
             </Button>
           </Box>
         </Grid>
