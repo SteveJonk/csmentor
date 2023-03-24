@@ -4,7 +4,7 @@ import { User } from '../interfaces/User'
 import { UserCard } from './card/UserCard'
 
 interface Props {
-  users: User[] //TODO: Make this actual typed users
+  users: User[]
 }
 
 export const CardList = ({ users }: Props) => (

@@ -10,11 +10,15 @@ const theme = createTheme({
     secondary: {
       main: CSThemeVars.secondary,
     },
+    info: {
+      main: CSThemeVars.info,
+    },
   },
   typography: {
     allVariants: {
       color: CSThemeVars.fontColor,
       fontFamily: 'Inter',
+      fontWeight: 300,
     },
     h1: {
       fontSize: 24,
@@ -23,10 +27,19 @@ const theme = createTheme({
     h2: {
       fontSize: 20,
       fontWeight: 500,
+      marginBottom: '0.3em',
     },
     h3: {
       fontSize: 18,
-      fontWeight: 500,
+      fontWeight: 300,
+      marginBottom: '0.3em',
+    },
+    h4: {
+      fontSize: 14,
+      fontWeight: 300,
+    },
+    body2: {
+      color: CSThemeVars.grey,
     },
   },
   components: {},
