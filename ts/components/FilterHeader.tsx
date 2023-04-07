@@ -1,29 +1,9 @@
 import { Container, Grid, Typography } from '@mui/material'
-import { useFilters } from '../hooks/useFilters'
 import { FormSelect } from './form/FormSelect'
 import { SearchBox } from './form/SearchBox'
 
-export const FilterHeader = () => {
-  const {
-    company,
-    setCompany,
-    companyOptions,
-    companyType,
-    setCompanyType,
-    companyTypeOptions,
-    specialisations,
-    setSpecialisations,
-    specalisationsOptions,
-    location,
-    setLocation,
-    locationOptions,
-    name,
-    setName,
-    focus,
-    setFocus,
-    focusOptions,
-  } = useFilters()
-
+export const FilterHeader = ({ filters }) => {
+  const { filterState, filterStateChange, options } = filters
   return (
     <div className="white-bg">
       <Container maxWidth="xl" sx={{ paddingY: 4 }}>
@@ -32,46 +12,50 @@ export const FilterHeader = () => {
         </Typography>
         <Grid container marginTop={2} spacing={2}>
           <Grid item xs={12} sm={12}>
-            <SearchBox onChange={setName} label={'Search by name'} value={name} />
+            <SearchBox
+              onChange={filterStateChange.setName}
+              label={'Search by name'}
+              value={filterState.name}
+            />
           </Grid>
           <Grid item xs={6} sm={3}>
             <FormSelect
-              onChange={setCompany}
+              onChange={filterStateChange.setCompany}
               label="Company"
-              options={companyOptions}
-              selectedValue={company}
+              options={options.companyOptions}
+              selectedValue={filterState.company}
             />
           </Grid>
           <Grid item xs={6} sm={3}>
             <FormSelect
-              onChange={setCompanyType}
+              onChange={filterStateChange.setCompanyType}
               label="Company type"
-              options={companyTypeOptions}
-              selectedValue={companyType}
+              options={options.companyTypeOptions}
+              selectedValue={filterState.companyType}
             />
           </Grid>
           <Grid item xs={6} sm={3}>
             <FormSelect
-              onChange={setSpecialisations}
+              onChange={filterStateChange.setSpecialisations}
               label="Specialisations"
-              options={specalisationsOptions}
-              selectedValue={specialisations}
+              options={options.specalisationsOptions}
+              selectedValue={filterState.specialisations}
             />
           </Grid>
           <Grid item xs={6} sm={3}>
             <FormSelect
-              onChange={setLocation}
+              onChange={filterStateChange.setLocation}
               label="Location"
-              options={locationOptions}
-              selectedValue={location}
+              options={options.locationOptions}
+              selectedValue={filterState.location}
             />
           </Grid>
           <Grid item xs={6} sm={3}>
             <FormSelect
-              onChange={setFocus}
+              onChange={filterStateChange.setFocus}
               label="Focus"
-              options={focusOptions}
-              selectedValue={focus}
+              options={options.focusOptions}
+              selectedValue={filterState.focus}
             />
           </Grid>
         </Grid>

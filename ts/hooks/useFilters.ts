@@ -16,22 +16,28 @@ export const useFilters = () => {
   const focusOptions = ['Growth', 'Money', 'Expansion']
 
   return {
-    company,
-    setCompany,
-    companyOptions,
-    companyType,
-    setCompanyType,
-    companyTypeOptions,
-    specialisations,
-    setSpecialisations,
-    specalisationsOptions,
-    location,
-    setLocation,
-    locationOptions,
-    name,
-    setName,
-    focus,
-    setFocus,
-    focusOptions,
+    filterState: {
+      company,
+      companyType,
+      specialisations,
+      location,
+      name,
+      focus,
+    },
+    filterStateChange: {
+      setCompany,
+      setCompanyType,
+      setSpecialisations,
+      setLocation,
+      setName,
+      setFocus,
+    },
+    options: {
+      companyOptions,
+      companyTypeOptions,
+      specalisationsOptions,
+      locationOptions,
+      focusOptions,
+    },
   }
 }

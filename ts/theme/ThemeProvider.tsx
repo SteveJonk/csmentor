@@ -15,9 +15,9 @@ const theme = createTheme({
     },
   },
   typography: {
+    fontFamily: 'Inter',
     allVariants: {
       color: CSThemeVars.fontColor,
-      fontFamily: 'Inter',
       fontWeight: 300,
     },
     h1: {
