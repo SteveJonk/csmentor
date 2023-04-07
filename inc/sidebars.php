@@ -3,33 +3,17 @@
 function theme_sidebars()
 {
     register_sidebar(array(
-        'name' => 'Footer 1',
-        'id' => 'footer-1',
+        'name' => 'Footer',
+        'id' => 'footer',
         'description' => 'Deze sidebar zal worden getoond in de footer',
         'before_widget' => '',
         'after_widget' => '',
     ));
 
     register_sidebar(array(
-        'name' => 'Footer 2',
-        'id' => 'footer-2',
-        'description' => 'Deze sidebar zal worden getoond in de footer',
-        'before_widget' => '',
-        'after_widget' => '',
-    ));
-
-    register_sidebar(array(
-        'name' => 'Footer 3',
-        'id' => 'footer-3',
-        'description' => 'Deze sidebar zal worden getoond in de footer',
-        'before_widget' => '',
-        'after_widget' => '',
-    ));
-
-    register_sidebar(array(
-        'name' => 'Footer 4',
-        'id' => 'footer-4',
-        'description' => 'Deze sidebar zal worden getoond in de footer',
+        'name' => 'Header CTA',
+        'id' => 'header-cta',
+        'description' => 'Deze sidebar zal worden getoond in de navigatiebalk',
         'before_widget' => '',
         'after_widget' => '',
     ));

@@ -1,0 +1,11 @@
+.wp-block-group {
+  &.is-style-card {
+    background-color: white;
+    padding: 10px 10px 20px 10px;
+    box-shadow: 0 4px 50px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    & img {
+      width: 200%;
+    }
+  }
+}

@@ -1,0 +1,38 @@
+.wp-block-image {
+  position: relative;
+  margin-bottom: 0;
+  & img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &.is-style-rounded {
+    & img {
+      border-radius: 10px;
+    }
+  }
+
+  &.is-style-full-width {
+    width: 100%;
+    &-square {
+      width: 100%;
+      aspect-ratio: 1/1;
+    }
+    &-contain {
+      height: 100%;
+      & img {
+        object-fit: contain;
+        object-position: center;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.wp-block-cover {
+  &.is-style-content-bottom {
+    & .wp-block-cover__inner-container {
+      align-self: flex-end;
+    }
+  }
+}

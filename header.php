@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset='<?php bloginfo('charset') ?>'>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="shortcut icon" type="image/png" href="<?php echo get_site_icon_url(); ?>">
-    <?php wp_head() ?>
+    <head>
+        <meta charset='<?php bloginfo('charset') ?>'>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="shortcut icon" type="image/png" href="<?php echo get_site_icon_url(); ?>">
+        <?php wp_head() ?>
 
-</head>
+    </head>
 
-<body <?php body_class() ?>>
-    <?php wp_body_open(); ?>
+    <body <?php body_class() ?>>
+        <?php wp_body_open(); ?>
 
 
 
-    <main class="main">
+        <main class="main">

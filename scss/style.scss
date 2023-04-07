@@ -24,19 +24,28 @@
 @import './components/container';
 @import './components/admin-login';
 @import './components/section';
+@import './components/header';
+@import './components/footer';
+@import './components/image';
+@import './components/columns';
+@import './components/card';
 
 /* Base stuff */
 html {
   width: 100%;
   overflow-x: hidden;
+  margin-top: 0 !important;
 }
 
 body {
   margin: 0;
-  overflow-x: hidden;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+main {
+  height: 100%;
 }
 
 #wpadminbar {

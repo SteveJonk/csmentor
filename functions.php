@@ -10,9 +10,10 @@ include "inc/api-mods.php";
 include "inc/login-screen.php";
 include "inc/navbar.php";
 include "inc/sidebars.php";
-include "inc/group-block-style.php";
-include "inc/image-block-style.php";
+include "inc/custom-block-styles.php";
 include "inc/react-components.php";
+include "inc/custom-post-types/galleries.php";
+include "inc/custom-post-types/testimonials.php";
 
 
 function theme_features()

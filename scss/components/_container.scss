@@ -1,5 +1,6 @@
 .container,
-.is-style-container {
+.is-style-container,
+.is-style-container-many-columns {
   padding: 0 20px;
 
   @include onlyDesktop {

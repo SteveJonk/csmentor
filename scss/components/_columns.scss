@@ -1,0 +1,25 @@
+.wp-block-columns {
+  margin-bottom: 0;
+  &.is-style-container-many-columns {
+    @include Tablet {
+      justify-content: space-around;
+    }
+    & .wp-block-column {
+      &.is-style-large-padding {
+        box-sizing: border-box;
+        padding: 30px;
+        @include Tablet {
+          padding: 0;
+        }
+      }
+      @include Tablet {
+        flex-basis: 15% !important;
+        max-width: 15%;
+      }
+      @include Mobile {
+        flex-basis: 25% !important;
+        max-width: 25%;
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.footer {
+  background-color: $dark-black;
+  color: white;
+  padding: 40px 0;
+  & img {
+    max-width: 250px;
+  }
+  & hr.wp-block-separator {
+    margin: 20px 0;
+    opacity: 0.1;
+  }
+  & p.has-text-align-center {
+    opacity: 0.6;
+  }
+  & a {
+    color: white;
+    text-decoration: none;
+  }
+}
