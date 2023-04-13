@@ -14,6 +14,7 @@ include "inc/custom-block-styles.php";
 include "inc/react-components.php";
 include "inc/custom-post-types/galleries.php";
 include "inc/custom-post-types/testimonials.php";
+include "inc/components/testimonial-slider.php";
 
 
 function theme_features()

@@ -37,7 +37,7 @@ function create_testimonial_cpt()
         'description' => __('', 'textdomain'),
         'labels' => $labels,
         'menu_icon' => 'dashicons-awards',
-        'supports' => array(),
+        'supports' => array('title', 'editor', 'thumbnail'),
         'taxonomies' => array(),
         'public' => true,
         'show_ui' => true,

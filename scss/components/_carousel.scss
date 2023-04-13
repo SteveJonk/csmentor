@@ -1,0 +1,33 @@
+.glide {
+  margin-bottom: 40px;
+  &__slide {
+    // height: 700px;
+    &__inner {
+      position: relative;
+      height: 100%;
+    }
+  }
+  &__arrows {
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+  }
+  &__arrow {
+    color: black;
+    background-color: transparent !important;
+    border: 1px solid white;
+    cursor: pointer;
+    font-size: 1.7em;
+    height: 35px;
+    width: 35px;
+    padding: 0;
+    &:hover {
+      background-color: white !important;
+      color: $common-black !important;
+      mix-blend-mode: screen;
+    }
+  }
+}
