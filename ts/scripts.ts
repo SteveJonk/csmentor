@@ -1,6 +1,7 @@
 import { injectReact } from './injectReact'
-import './non-react/gallery-slider'
-import './non-react/testimonial-slider'
+import './non-react/gallerySlider'
+import './non-react/scrollToTop'
+import './non-react/testimonialSlider'
 import { App as MentorFinder } from './views/MentorFinder'
 
 injectReact(MentorFinder, '#mentor-finder')

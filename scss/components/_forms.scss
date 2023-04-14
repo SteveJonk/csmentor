@@ -18,6 +18,11 @@
         border: 1px solid $grey-200;
         border-radius: 10px;
       }
+      & select {
+        -webkit-appearance: none;
+        background-color: white;
+        color: $text-main !important;
+      }
     }
   }
   & ._button-wrapper {
@@ -29,6 +34,46 @@
       padding: 1em;
       border: none;
       border-radius: 100px;
+    }
+  }
+}
+
+article {
+  ._form {
+    & ._form_element {
+      & label {
+        display: inline-block;
+        margin: 10px 0 5px 0;
+        color: white;
+      }
+      & ._field-wrapper {
+        & input,
+        & select {
+          padding: 8px 10px;
+          font-family: $text-main;
+          width: 100%;
+          box-sizing: border-box;
+          border: none;
+          border-radius: 100px;
+        }
+        & select {
+          padding-right: 30px;
+        }
+      }
+    }
+    & ._button-wrapper {
+      button {
+        margin-top: 15px;
+        background-color: $secondary-color;
+        color: white;
+        font-size: 1rem;
+        padding: 1em;
+        border: none;
+        border-radius: 100px;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 20px;
+      }
     }
   }
 }

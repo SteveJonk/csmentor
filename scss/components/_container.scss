@@ -2,7 +2,7 @@
 .is-style-container,
 .is-style-container-many-columns {
   padding: 0 20px;
-
+  position: relative;
   @include onlyDesktop {
     max-width: 1000px;
     margin: 0 auto;
@@ -10,5 +10,16 @@
 }
 
 section.has-background {
+  padding: 0;
+}
+
+article {
+  border-radius: 20px;
+  &.wp-block-group.has-background {
+    padding: 10px 20px;
+  }
+}
+
+.has-background {
   padding: 0;
 }

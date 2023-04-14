@@ -1,5 +1,15 @@
 .wp-block-columns {
   margin-bottom: 0;
+  @include Tablet {
+    flex-basis: 0;
+    flex-grow: 1;
+    & .wp-block-column.is-layout-flow {
+      flex-basis: 0 !important;
+      @include Mobile {
+        flex-basis: 100% !important;
+      }
+    }
+  }
   &.is-style-container-many-columns {
     @include Tablet {
       justify-content: space-around;
