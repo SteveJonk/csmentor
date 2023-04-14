@@ -1,28 +1,28 @@
 <?php
 
-function testimonial_slider_function($atts)
+function gallery_slider_function($atts)
 {
 
     extract(shortcode_atts(array(
-        'items' => 9
+        'items' => 8
     ), $atts));
 
     $post = new WP_Query(array(
         'posts_per_page' => $items,
-        'post_type' => 'testimonial',
-        'orderby' => 'rand',
+        'post_type' => 'gallery',
+        'orderby' => 'menu_order',
         'order' => 'ASC'
     ));
 
     ob_start(); ?>
 
-    <div id="testimonial-slider" class="glide">
+    <div id="gallery-slider" class="glide">
         <div class="glide__track" data-glide-el="track">
             <ul class="glide__slides">
                 <?php
                 while ($post->have_posts()) {
                     $post->the_post();
-                    get_template_part('template-parts/testimonial-slide');
+                    get_template_part('template-parts/gallery-slide');
                 }
                 wp_reset_postdata(); ?>
             </ul>
@@ -41,6 +41,6 @@ function testimonial_slider_function($atts)
 <?php return ob_get_clean();
 }
 
-add_shortcode('testimonial_slider', 'testimonial_slider_function');
+add_shortcode('gallery_slider', 'gallery_slider_function');
 
 ?>

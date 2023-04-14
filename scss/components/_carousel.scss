@@ -3,11 +3,24 @@ main.main {
     margin-bottom: 40px;
 
     &__slide {
-      background-color: white;
-      padding: 10px 10px 20px 10px;
-      box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-      margin-bottom: 10px;
+      &.card {
+        background-color: white;
+        padding: 10px 10px 20px 10px;
+        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        margin-bottom: 10px;
+        &.image {
+          padding: 0;
+          aspect-ratio: 1/1;
+          margin-bottom: 20px;
+          & img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+          }
+        }
+      }
       &__inner {
         position: relative;
         height: 100%;
@@ -28,6 +41,27 @@ main.main {
         &__content {
           color: $grey-300;
         }
+        &__button {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          position: absolute;
+          bottom: -20px;
+          &__inner {
+            background-color: $secondary-color;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 100px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            & svg {
+              fill: white;
+              height: 16px;
+            }
+          }
+        }
       }
     }
     &__arrows {
@@ -36,7 +70,7 @@ main.main {
       display: flex;
       justify-content: space-between;
       position: absolute;
-      top: 45%;
+      top: 40%;
     }
     &__arrow {
       color: white;

@@ -1,12 +1,12 @@
 import Glide from '@glidejs/glide'
 import { autoBullets } from './autobullets'
 
-if (document.getElementById('testimonial-slider')) {
-  new Glide('#testimonial-slider', {
+if (document.getElementById('gallery-slider')) {
+  new Glide('#gallery-slider', {
     autoplay: 3000,
     gap: 20,
     type: 'carousel',
-    perView: 3,
+    perView: 4,
     peek: 5,
     breakpoints: {
       530: {

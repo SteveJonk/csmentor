@@ -1,4 +1,4 @@
-<li class="glide__slide">
+<li class="glide__slide card">
     <div class="glide__slide__inner">
         <div class="glide__slide__inner__top">
             <img class="glide__slide__inner__profile-pic" src="<?php echo get_the_post_thumbnail_url($post, 'thumbnail'); ?>">
