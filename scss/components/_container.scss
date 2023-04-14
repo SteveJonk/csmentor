@@ -9,8 +9,12 @@
   }
 }
 
-section.has-background {
-  padding: 0;
+.wp-block-group {
+  // overflow-x: hidden;
+  &.is-style-background {
+    background-image: url('./assets/bg.svg');
+    background-repeat: no-repeat;
+  }
 }
 
 article {

@@ -21,6 +21,14 @@ register_block_style(
 );
 
 register_block_style(
+    'core/group',
+    array(
+        'name'         => 'background',
+        'label'        => __('Background', 'textdomain'),
+    )
+);
+
+register_block_style(
     'core/columns',
     array(
         'name'         => 'container',
@@ -69,6 +77,14 @@ register_block_style(
     array(
         'name'         => 'full-width-square',
         'label'        => __('Full width and square', 'textdomain'),
+    )
+);
+
+register_block_style(
+    'core/image',
+    array(
+        'name'         => 'half-page',
+        'label'        => __('Half page', 'textdomain'),
     )
 );
 

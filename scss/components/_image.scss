@@ -27,6 +27,16 @@
       }
     }
   }
+  &.is-style-half-page {
+    width: 50vw;
+    max-height: 100%;
+    @include Mobile {
+      width: 100vw;
+    }
+    & img {
+      object-position: left;
+    }
+  }
 }
 
 .wp-block-cover {
@@ -35,4 +45,12 @@
       align-self: flex-end;
     }
   }
+}
+
+/**
+ * Hacky solution for the top image
+ */
+
+.top-image-position img {
+  height: 700px;
 }
