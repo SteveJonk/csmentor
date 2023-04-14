@@ -13,8 +13,8 @@
         }
       }
       @include Tablet {
-        flex-basis: 15% !important;
-        max-width: 15%;
+        flex-basis: 10% !important;
+        max-width: 10%;
       }
       @include Mobile {
         flex-basis: 25% !important;
