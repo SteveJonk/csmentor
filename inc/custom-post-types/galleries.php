@@ -50,7 +50,7 @@ function create_gallery_cpt()
         'hierarchical' => false,
         'exclude_from_search' => false,
         'show_in_rest' => true,
-        'publicly_queryable' => true,
+        'publicly_queryable' => false,
         'capability_type' => 'post',
     );
     register_post_type('gallery', $args);
