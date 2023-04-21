@@ -1,7 +1,10 @@
 import LoginIcon from '@mui/icons-material/Login'
 import PersonIcon from '@mui/icons-material/Person'
-import { Box, Button, Link, Toolbar } from '@mui/material'
 import AppBar from '@mui/material/AppBar'
+import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
+import Link from '@mui/material/Link'
+import Toolbar from '@mui/material/Toolbar'
 import { useState } from 'react'
 
 import { config, paths } from '../config/config'

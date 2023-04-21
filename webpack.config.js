@@ -1,6 +1,7 @@
 const webpack = require('webpack')
 const path = require('path')
 settings = require('./settings')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = {
   entry: [
@@ -9,6 +10,7 @@ module.exports = {
     settings.themeLocation + 'ts/scripts.ts',
   ],
   mode: 'development',
+  devtool: 'eval',
   module: {
     rules: [
       {
@@ -24,7 +26,12 @@ module.exports = {
       },
     ],
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()],
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    // new BundleAnalyzerPlugin(),
+  ],
+
+  cache: true,
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },

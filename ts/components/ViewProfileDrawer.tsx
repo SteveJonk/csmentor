@@ -1,24 +1,21 @@
 import { Close, Email, Language, LocationOn, Star } from '@mui/icons-material'
 
-import {
-  AppBar,
-  Box,
-  Button,
-  Container,
-  Dialog,
-  Divider,
-  Grid,
-  IconButton,
-  Slide,
-  Toolbar,
-  Typography,
-} from '@mui/material'
+import AppBar from '@mui/material/AppBar'
+import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
+import Container from '@mui/material/Container'
+import Dialog from '@mui/material/Dialog'
+import Divider from '@mui/material/Divider'
+import Grid from '@mui/material/Grid'
+import IconButton from '@mui/material/IconButton'
+import Slide from '@mui/material/Slide'
+import Toolbar from '@mui/material/Toolbar'
+import Typography from '@mui/material/Typography'
 import { TransitionProps } from '@mui/material/transitions'
-import { forwardRef, ReactElement } from 'react'
+import { ReactElement, forwardRef } from 'react'
 import { config, paths } from '../config/config'
 import { User } from '../interfaces/User'
 import { CSThemeVars } from '../theme/CSThemeVars'
-
 // TODO: Add profile fields
 
 interface Props {

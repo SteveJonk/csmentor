@@ -1,5 +1,5 @@
 import Grid from '@mui/material/Grid'
-import { Container } from '@mui/system'
+import Container from '@mui/system/Container'
 import { User } from '../interfaces/User'
 import { UserCard } from './card/UserCard'
 

@@ -11,5 +11,11 @@ module.exports = {
     'no-cond-assign': ['error', 'always'],
     // disable rules from base configurations
     'for-direction': 'off',
+    'no-restricted-imports': [
+      'error',
+      {
+        patterns: ['@mui/*/*/*'],
+      },
+    ],
   },
 }
