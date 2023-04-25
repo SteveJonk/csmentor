@@ -5,8 +5,7 @@
     position: relative;
     &:first-of-type {
       & .is-style-half-page {
-        position: absolute;
-        right: 0;
+        float: right;
         & img {
           border-radius: 0 70px 70px 0;
           @include Mobile {
