@@ -1,7 +1,6 @@
 import EmailIcon from '@mui/icons-material/Email'
 import LanguageIcon from '@mui/icons-material/Language'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
-import StarIcon from '@mui/icons-material/Star'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Divider from '@mui/material/Divider'
@@ -22,7 +21,11 @@ export const UserCard = ({ user, onClickViewProfile }: Props) => (
       <Grid container spacing={2} paddingBottom={3}>
         <Grid item xs={12} sm={9} sx={{ display: 'flex', gap: 2 }}>
           <img
-            src={`${config.themeFolder}/assets/PlaceholderProfilePicture.jpg`}
+            src={
+              user?.acf?.profile_picture.sizes?.thumbnail
+                ? user?.acf?.profile_picture.sizes?.thumbnail
+                : `${config.themeFolder}/assets/PlaceholderProfilePicture.jpg`
+            }
             width={72}
             height={72}
             style={{
@@ -35,7 +38,7 @@ export const UserCard = ({ user, onClickViewProfile }: Props) => (
               {user.name}
             </Typography>
             <Typography variant="h3" marginBottom={1} color="grey">
-              Functie titel hier
+              {user.acf.job}
             </Typography>
             <Typography
               variant="body2"
@@ -46,11 +49,11 @@ export const UserCard = ({ user, onClickViewProfile }: Props) => (
             >
               <span>
                 <LocationOnIcon fontSize="small" />
-                Haarlem
+                {user.acf.city}
               </span>
               <span>
                 <LanguageIcon fontSize="small" sx={{ marginRight: 0.2 }} />
-                Dutch, English
+                {user.acf.languages.join(', ')}
               </span>
             </Typography>
           </Box>
@@ -66,31 +69,26 @@ export const UserCard = ({ user, onClickViewProfile }: Props) => (
             textAlign: { xs: 'left', sm: 'right' },
           }}
         >
-          <Typography
+          {/* <Typography
             variant="h2"
             sx={{ display: 'flex', gap: 0.5, justifyContent: { sm: 'flex-end' } }}
           >
             <StarIcon color="info" />
             4.5
           </Typography>
-          <Typography variant="body1">6 Reviews</Typography>
-          <Typography variant="body2">€10,- / hour</Typography>
+          <Typography variant="body1">6 Reviews</Typography> */}
+          <Typography variant="body2">{`€${user.acf.price} / hour`}</Typography>
         </Grid>
       </Grid>
       <Divider />
       <Grid container spacing={2} paddingTop={2}>
         <Grid item xs={12}>
-          <Typography variant="body2">
-            Someting about me. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu
-            facilisis nisl, id pretium massa. Fusce ultricies malesuada justo vitae bibendum.
-            Aliquam eleifend mauris vel erat varius, eu luctus urna tincidunt. Aenean vitae risus
-            iaculis, ultricies nibh non, finibus ante.
-          </Typography>
+          <Typography variant="body2">{user.acf.about_me}</Typography>
         </Grid>
         <Grid item xs={6} md={3}>
           <Typography variant="body1">Company</Typography>
           <Typography variant="body2" mb={2}>
-            iO
+            {user.acf.company}
           </Typography>
           <Typography variant="body1">Years of experience</Typography>
           <Typography variant="body2">3-5 years</Typography>
@@ -98,18 +96,18 @@ export const UserCard = ({ user, onClickViewProfile }: Props) => (
         <Grid item xs={6} md={3}>
           <Typography variant="body1">Specalisations</Typography>
           <Typography variant="body2" mb={2}>
-            IT, Design
+            {user.acf.specialisations.join(', ')}
           </Typography>
           <Typography variant="body1">CS Skills</Typography>
-          <Typography variant="body2">Engagement</Typography>
+          <Typography variant="body2">{user.acf.cs_skills.join(', ')}</Typography>
         </Grid>
         <Grid item xs={6} md={3}>
           <Typography variant="body1">Seniority Level</Typography>
           <Typography variant="body2" mb={2}>
-            Teamlead
+            {user.acf.seniority_level}
           </Typography>
           <Typography variant="body1">Extra skills</Typography>
-          <Typography variant="body2">Presenting</Typography>
+          <Typography variant="body2">{user.acf.extra_skills.join(', ')}</Typography>
         </Grid>
         <Grid item xs={12} md={3} position="relative">
           <Box

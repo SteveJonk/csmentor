@@ -5,7 +5,35 @@ import { FormSelect } from './form/FormSelect'
 import { SearchBox } from './form/SearchBox'
 
 export const FilterHeader = ({ filters }) => {
-  const { filterState, filterStateChange, options } = filters
+  const {
+    filterState: {
+      name,
+      languages,
+      seniorityLevel,
+      specialisations,
+      csSkills,
+      experience,
+      extraSkills,
+    },
+    filterStateChange: {
+      setName,
+      setLanguages,
+      setSeniorityLevel,
+      setSpecialisations,
+      setCSSkills,
+      setExperience,
+      setExtraSkills,
+    },
+    options: {
+      languageOptions,
+      seniorityLevelOptions,
+      specalisationsOptions,
+      csSkillsOptions,
+      experienceOptions,
+      extraSkillsOptions,
+    },
+  } = filters
+
   return (
     <div className="white-bg">
       <Container maxWidth="xl" sx={{ paddingY: 4 }}>
@@ -14,50 +42,54 @@ export const FilterHeader = ({ filters }) => {
         </Typography>
         <Grid container marginTop={2} spacing={2}>
           <Grid item xs={12} sm={12}>
-            <SearchBox
-              onChange={filterStateChange.setName}
-              label={'Search by name'}
-              value={filterState.name}
+            <SearchBox onChange={setName} label={'Search by name'} value={name} />
+          </Grid>
+          <Grid item xs={6} sm={3}>
+            <FormSelect
+              onChange={setLanguages}
+              label="Languages"
+              options={languageOptions}
+              selectedValue={languages}
             />
           </Grid>
           <Grid item xs={6} sm={3}>
             <FormSelect
-              onChange={filterStateChange.setCompany}
-              label="Company"
-              options={options.companyOptions}
-              selectedValue={filterState.company}
+              onChange={setSeniorityLevel}
+              label="Seniority Level"
+              options={seniorityLevelOptions}
+              selectedValue={seniorityLevel}
             />
           </Grid>
           <Grid item xs={6} sm={3}>
             <FormSelect
-              onChange={filterStateChange.setCompanyType}
-              label="Company type"
-              options={options.companyTypeOptions}
-              selectedValue={filterState.companyType}
-            />
-          </Grid>
-          <Grid item xs={6} sm={3}>
-            <FormSelect
-              onChange={filterStateChange.setSpecialisations}
+              onChange={setSpecialisations}
               label="Specialisations"
-              options={options.specalisationsOptions}
-              selectedValue={filterState.specialisations}
+              options={specalisationsOptions}
+              selectedValue={specialisations}
             />
           </Grid>
           <Grid item xs={6} sm={3}>
             <FormSelect
-              onChange={filterStateChange.setLocation}
-              label="Location"
-              options={options.locationOptions}
-              selectedValue={filterState.location}
+              onChange={setCSSkills}
+              label="CS Skills"
+              options={csSkillsOptions}
+              selectedValue={csSkills}
             />
           </Grid>
           <Grid item xs={6} sm={3}>
             <FormSelect
-              onChange={filterStateChange.setFocus}
-              label="Focus"
-              options={options.focusOptions}
-              selectedValue={filterState.focus}
+              onChange={setExperience}
+              label="Years of Experience"
+              options={experienceOptions}
+              selectedValue={experience}
+            />
+          </Grid>
+          <Grid item xs={6} sm={3}>
+            <FormSelect
+              onChange={setExtraSkills}
+              label="Extra skills"
+              options={extraSkillsOptions}
+              selectedValue={extraSkills}
             />
           </Grid>
         </Grid>

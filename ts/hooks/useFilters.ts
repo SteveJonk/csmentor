@@ -1,43 +1,61 @@
 import { useState } from 'react'
+import { userUserOptions } from './useUserOptions'
 
 export const useFilters = () => {
-  const [company, setCompany] = useState('')
-  const [companyType, setCompanyType] = useState('')
-  const [specialisations, setSpecialisations] = useState('')
-  const [location, setLocation] = useState('')
-  const [name, setName] = useState('')
-  const [focus, setFocus] = useState('')
+  const { options } = userUserOptions()
 
-  // TODO: Now testdata, but this should be filled with actual company options coming from users
-  const companyOptions = ['iO', 'Customer Success Snack']
-  const companyTypeOptions = ['IT', 'Marketing', 'CS']
-  const specalisationsOptions = ['CS', 'Other specialisation', 'one more']
-  const locationOptions = ['Haarlem', 'Amsterdam', 'Utrecht', 'Rotterdam']
-  const focusOptions = ['Growth', 'Money', 'Expansion']
+  const [name, setName] = useState('')
+  const [languages, setLanguages] = useState('')
+  const [seniorityLevel, setSeniorityLevel] = useState('')
+  const [specialisations, setSpecialisations] = useState('')
+  const [csSkills, setCSSkills] = useState('')
+  const [experience, setExperience] = useState('')
+  const [extraSkills, setExtraSkills] = useState('')
+
+  //TODO: Later locatie implementeren
+  const [location, setLocation] = useState('')
+
+  const languageOptions = Object.values(options?.acf?.properties?.extra_skills?.items?.enum || {})
+  const seniorityLevelOptions = Object.values(
+    options?.acf?.properties?.seniority_level?.items?.enum || {}
+  )
+  const specalisationsOptions = Object.values(
+    options?.acf?.properties?.specialisations?.items?.enum || {}
+  )
+  const csSkillsOptions = Object.values(options?.acf?.properties?.cs_skills?.items?.enum || {})
+  const experienceOptions = Object.values(
+    options?.acf?.properties?.years_of_experience?.items?.enum || {}
+  )
+  const extraSkillsOptions = Object.values(
+    options?.acf?.properties?.extra_skills?.items?.enum || {}
+  )
 
   return {
     filterState: {
-      company,
-      companyType,
-      specialisations,
-      location,
       name,
-      focus,
+      languages,
+      seniorityLevel,
+      specialisations,
+      csSkills,
+      experience,
+      extraSkills,
     },
     filterStateChange: {
-      setCompany,
-      setCompanyType,
-      setSpecialisations,
-      setLocation,
       setName,
-      setFocus,
+      setLanguages,
+      setSeniorityLevel,
+      setSpecialisations,
+      setCSSkills,
+      setExperience,
+      setExtraSkills,
     },
     options: {
-      companyOptions,
-      companyTypeOptions,
+      languageOptions,
+      seniorityLevelOptions,
       specalisationsOptions,
-      locationOptions,
-      focusOptions,
+      csSkillsOptions,
+      experienceOptions,
+      extraSkillsOptions,
     },
   }
 }

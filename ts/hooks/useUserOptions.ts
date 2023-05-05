@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useQuery } from 'react-query'
 import apiClient from '../api/apiClient'
 import { endPoints } from '../config/config'
-import { User } from '../interfaces/User'
+import { UserOptions } from '../interfaces/UserOptions'
 
 export const userUserOptions = () => {
   const [error, setError] = useState()
@@ -20,7 +20,7 @@ export const userUserOptions = () => {
     }
   )
 
-  const options: User[] | undefined = data?.data || []
+  const options: UserOptions | undefined = data?.data?.schema?.properties || []
 
   return { options, isLoading, error }
 }

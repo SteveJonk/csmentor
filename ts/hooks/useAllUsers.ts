@@ -15,7 +15,7 @@ export const useAllUsers = (filters) => {
   const { isLoading, data, refetch } = useQuery(
     'allUsersQuery',
     async () => {
-      return await apiClient.get(`${endPoints.users}?search=${name}`)
+      return await apiClient.get(`${endPoints.users}?acf_format=standard&search=${name}`)
     },
     {
       onError: (err: AxiosError) => {

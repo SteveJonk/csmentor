@@ -27,7 +27,7 @@ export const FormSelect = ({ label, multiple, onChange, options, selectedValue }
         size="small"
         variant="outlined"
       >
-        {options.map((option) => (
+        {options?.map((option) => (
           <MenuItem key={option} value={option}>
             {option}
           </MenuItem>

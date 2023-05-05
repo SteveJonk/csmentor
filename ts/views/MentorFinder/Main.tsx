@@ -5,7 +5,6 @@ import { NavBar } from '../../components/NavBar'
 import { ViewProfileDrawer } from '../../components/ViewProfileDrawer'
 import { useAllUsers } from '../../hooks/useAllUsers'
 import { useFilters } from '../../hooks/useFilters'
-import { userUserOptions } from '../../hooks/useUserOptions'
 import { User } from '../../interfaces/User'
 
 export const Main = () => {
@@ -16,9 +15,7 @@ export const Main = () => {
 
   const { users } = useAllUsers(filters.filterState)
 
-  const { options } = userUserOptions()
-  // console.log(users)
-  // console.log(options)
+  // console.log(users[0])
 
   const handleProfileOpen = (user: User) => {
     setSelectedUser(user)
