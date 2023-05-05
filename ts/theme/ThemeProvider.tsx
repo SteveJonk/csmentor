@@ -1,5 +1,5 @@
-import createTheme from '@mui/material/styles/createTheme'
 import ThemeProvider from '@mui/material/styles/ThemeProvider'
+import createTheme from '@mui/material/styles/createTheme'
 import { CSThemeVars } from './CSThemeVars'
 
 const theme = createTheme({
@@ -15,7 +15,6 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'Inter',
     allVariants: {
       color: CSThemeVars.fontColor,
       fontWeight: 300,

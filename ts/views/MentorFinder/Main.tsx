@@ -17,8 +17,8 @@ export const Main = () => {
   const { users } = useAllUsers(filters.filterState)
 
   const { options } = userUserOptions()
-  console.log(users)
-  console.log(options)
+  // console.log(users)
+  // console.log(options)
 
   const handleProfileOpen = (user: User) => {
     setSelectedUser(user)
