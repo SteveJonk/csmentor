@@ -13,9 +13,7 @@ export const Main = () => {
 
   const filters = useFilters()
 
-  const { users } = useAllUsers(filters.filterState)
-
-  // console.log(users[0])
+  const { users, isLoading } = useAllUsers(filters.filterState)
 
   const handleProfileOpen = (user: User) => {
     setSelectedUser(user)
@@ -31,7 +29,7 @@ export const Main = () => {
         user={selectedUser}
       />
       <FilterHeader filters={filters} />
-      <CardList users={users} onClickViewProfile={handleProfileOpen} />
+      {!isLoading && <CardList users={users} onClickViewProfile={handleProfileOpen} />}
     </div>
   )
 }

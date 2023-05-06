@@ -91,7 +91,7 @@ export const UserCard = ({ user, onClickViewProfile }: Props) => (
             {user.acf.company}
           </Typography>
           <Typography variant="body1">Years of experience</Typography>
-          <Typography variant="body2">3-5 years</Typography>
+          <Typography variant="body2">{user.acf.years_of_experience}</Typography>
         </Grid>
         <Grid item xs={6} md={3}>
           <Typography variant="body1">Specalisations</Typography>
@@ -127,7 +127,7 @@ export const UserCard = ({ user, onClickViewProfile }: Props) => (
               href={config.userLoggedIn ? `mailto:${user?.user_email}` : paths.login}
             >
               <EmailIcon sx={{ marginRight: 1 }} />
-              Get in touch
+              {config.userLoggedIn ? 'Get in touch' : 'Log in to get in touch'}
             </Button>
           </Box>
         </Grid>

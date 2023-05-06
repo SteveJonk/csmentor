@@ -1,8 +1,19 @@
+import styled from '@emotion/styled'
 import Container from '@mui/material/Container'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import { FormSelect } from './form/FormSelect'
 import { SearchBox } from './form/SearchBox'
+
+const NiceHeader = styled(Typography)`
+  background-image: linear-gradient(90deg, #ff557c 0%, #1839f2 100%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 40px;
+  font-family: 'Poppins', sans-serif;
+`
 
 export const FilterHeader = ({ filters }) => {
   const {
@@ -12,7 +23,7 @@ export const FilterHeader = ({ filters }) => {
       seniorityLevel,
       specialisations,
       csSkills,
-      experience,
+      yearsOfExperience,
       extraSkills,
     },
     filterStateChange: {
@@ -21,7 +32,7 @@ export const FilterHeader = ({ filters }) => {
       setSeniorityLevel,
       setSpecialisations,
       setCSSkills,
-      setExperience,
+      setYearsOfExperience,
       setExtraSkills,
     },
     options: {
@@ -29,7 +40,7 @@ export const FilterHeader = ({ filters }) => {
       seniorityLevelOptions,
       specalisationsOptions,
       csSkillsOptions,
-      experienceOptions,
+      yearsOfExperienceOptions,
       extraSkillsOptions,
     },
   } = filters
@@ -37,9 +48,9 @@ export const FilterHeader = ({ filters }) => {
   return (
     <div className="white-bg">
       <Container maxWidth="xl" sx={{ paddingY: 4 }}>
-        <Typography variant="h1" textAlign="center">
+        <NiceHeader variant="h1" textAlign="center">
           Find a Customer Success Mentor That Fits Your Needs
-        </Typography>
+        </NiceHeader>
         <Grid container marginTop={2} spacing={2}>
           <Grid item xs={12} sm={12}>
             <SearchBox onChange={setName} label={'Search by name'} value={name} />
@@ -78,10 +89,10 @@ export const FilterHeader = ({ filters }) => {
           </Grid>
           <Grid item xs={6} sm={3}>
             <FormSelect
-              onChange={setExperience}
+              onChange={setYearsOfExperience}
               label="Years of Experience"
-              options={experienceOptions}
-              selectedValue={experience}
+              options={yearsOfExperienceOptions}
+              selectedValue={yearsOfExperience}
             />
           </Grid>
           <Grid item xs={6} sm={3}>

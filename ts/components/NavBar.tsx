@@ -1,13 +1,9 @@
-import LoginIcon from '@mui/icons-material/Login'
-import PersonIcon from '@mui/icons-material/Person'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
-import Button from '@mui/material/Button'
-import Link from '@mui/material/Link'
 import Toolbar from '@mui/material/Toolbar'
 import { useState } from 'react'
 
-import { config, paths } from '../config/config'
+import { config } from '../config/config'
 import { MyAccountDrawer } from './MyAccountDrawer'
 
 export const NavBar = () => {
@@ -21,7 +17,7 @@ export const NavBar = () => {
             <img src={`${config.themeFolder}/assets/logo-cropped.png`} height={50} />
           </Box>
 
-          <Button
+          {/* <Button
             component={Link}
             href="/"
             variant="text"
@@ -49,7 +45,7 @@ export const NavBar = () => {
             >
               Login / Register
             </Button>
-          )}
+          )} */}
         </Toolbar>
       </AppBar>
       <MyAccountDrawer isOpen={isAccountOpen} onClose={() => setIsAccountOpen(false)} />

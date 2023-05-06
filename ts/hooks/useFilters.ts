@@ -9,13 +9,13 @@ export const useFilters = () => {
   const [seniorityLevel, setSeniorityLevel] = useState('')
   const [specialisations, setSpecialisations] = useState('')
   const [csSkills, setCSSkills] = useState('')
-  const [experience, setExperience] = useState('')
+  const [yearsOfExperience, setYearsOfExperience] = useState('')
   const [extraSkills, setExtraSkills] = useState('')
 
   //TODO: Later locatie implementeren
   const [location, setLocation] = useState('')
 
-  const languageOptions = Object.values(options?.acf?.properties?.extra_skills?.items?.enum || {})
+  const languageOptions = Object.values(options?.acf?.properties?.languages?.items?.enum || {})
   const seniorityLevelOptions = Object.values(
     options?.acf?.properties?.seniority_level?.items?.enum || {}
   )
@@ -23,7 +23,7 @@ export const useFilters = () => {
     options?.acf?.properties?.specialisations?.items?.enum || {}
   )
   const csSkillsOptions = Object.values(options?.acf?.properties?.cs_skills?.items?.enum || {})
-  const experienceOptions = Object.values(
+  const yearsOfExperienceOptions = Object.values(
     options?.acf?.properties?.years_of_experience?.items?.enum || {}
   )
   const extraSkillsOptions = Object.values(
@@ -37,7 +37,7 @@ export const useFilters = () => {
       seniorityLevel,
       specialisations,
       csSkills,
-      experience,
+      yearsOfExperience,
       extraSkills,
     },
     filterStateChange: {
@@ -46,7 +46,7 @@ export const useFilters = () => {
       setSeniorityLevel,
       setSpecialisations,
       setCSSkills,
-      setExperience,
+      setYearsOfExperience,
       setExtraSkills,
     },
     options: {
@@ -54,7 +54,7 @@ export const useFilters = () => {
       seniorityLevelOptions,
       specalisationsOptions,
       csSkillsOptions,
-      experienceOptions,
+      yearsOfExperienceOptions,
       extraSkillsOptions,
     },
   }

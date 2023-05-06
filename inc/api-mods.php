@@ -40,13 +40,6 @@ if (is_user_logged_in()) {
  */
 
 add_filter('rest_user_query', function ($args, $request) {
-    $specialisations = $request->get_param('specialisations');
-    $seniority_level = $request->get_param('seniority_level');
-    $years_of_experience = $request->get_param('years_of_experience');
-    $cs_skills = $request->get_param('cs_skills');
-    $languages = $request->get_param('languages');
-    $extra_skills = $request->get_param('extra_skills');
-
     $args['meta_query'] = array(
         array(
             'key'     => 'is_mentor',
@@ -55,65 +48,22 @@ add_filter('rest_user_query', function ($args, $request) {
         )
     );
 
-    if (!empty($specialisations)) {
-        $args['meta_query'] = array(
-            array(
-                'key'     => 'company',
-                'value'   => $specialisations,
-                'compare' => '=',
-            )
-        );
-    }
+    return $args;
+}, 10, 2);
 
-    if (!empty($seniority_level)) {
-        $args['meta_query'] = array(
-            array(
-                'key'     => 'company',
-                'value'   => $seniority_level,
-                'compare' => '=',
-            )
-        );
-    }
+add_filter('rest_user_query', function ($args) {
 
-    if (!empty($years_of_experience)) {
-        $args['meta_query'] = array(
-            array(
-                'key'     => 'company',
-                'value'   => $years_of_experience,
-                'compare' => '=',
-            )
-        );
-    }
+    $ignore = array('page', 'per_page', 'search', 'order', 'orderby', 'slug', 'acf_format', 'name');
 
-    if (!empty($cs_skills)) {
-        $args['meta_query'] = array(
-            array(
-                'key'     => 'company',
-                'value'   => $cs_skills,
-                'compare' => '=',
-            )
-        );
-    }
-
-    if (!empty($languages)) {
-        $args['meta_query'] = array(
-            array(
-                'key'     => 'company',
-                'value'   => $languages,
-                'compare' => '=',
-            )
-        );
-    }
-
-    if (!empty($extra_skills)) {
-        $args['meta_query'] = array(
-            array(
-                'key'     => 'company',
-                'value'   => $extra_skills,
-                'compare' => '=',
-            )
-        );
+    foreach ($_GET as $key => $value) {
+        if (!in_array($key, $ignore)) {
+            $args['meta_query'][] = array(
+                'key'   => $key,
+                'value' => $value,
+                'compare' => 'LIKE'
+            );
+        }
     }
 
     return $args;
-}, 10, 2);
+}, 15, 2);

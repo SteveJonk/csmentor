@@ -1,4 +1,4 @@
-import { Close, Email, Language, LocationOn, Star } from '@mui/icons-material'
+import { Close, Email, Language, LinkedIn, LocationOn } from '@mui/icons-material'
 
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
@@ -14,8 +14,10 @@ import Typography from '@mui/material/Typography'
 import { TransitionProps } from '@mui/material/transitions'
 import { ReactElement, forwardRef } from 'react'
 import { config, paths } from '../config/config'
+import { userUserOptions } from '../hooks/useUserOptions'
 import { User } from '../interfaces/User'
 import { CSThemeVars } from '../theme/CSThemeVars'
+import { toSentence } from '../utils/toSentence'
 // TODO: Add profile fields
 
 interface Props {
@@ -34,6 +36,9 @@ const Transition = forwardRef(function Transition(
 })
 
 export const ViewProfileDrawer = ({ isOpen, onClose, user }: Props) => {
+  const { options } = userUserOptions()
+  console.log(options)
+
   if (!user) return null
 
   return (
@@ -56,7 +61,11 @@ export const ViewProfileDrawer = ({ isOpen, onClose, user }: Props) => {
         <Grid container spacing={2} paddingBottom={3} marginTop={3}>
           <Grid item xs={12} sm={9} sx={{ display: 'flex', gap: 2 }}>
             <img
-              src={`${config.themeFolder}/assets/PlaceholderProfilePicture.jpg`}
+              src={
+                user?.acf?.profile_picture.sizes?.large
+                  ? user?.acf?.profile_picture.sizes?.large
+                  : `${config.themeFolder}/assets/PlaceholderProfilePicture.jpg`
+              }
               width={150}
               height={150}
               style={{
@@ -69,8 +78,9 @@ export const ViewProfileDrawer = ({ isOpen, onClose, user }: Props) => {
                 {user.name}
               </Typography>
               <Typography variant="h3" marginBottom={1} color="grey">
-                Functie titel hier
+                {user.acf.job}
               </Typography>
+              <Typography variant="body2">€{user.acf.price} / hour</Typography>
               <Typography
                 variant="body2"
                 color="grey"
@@ -80,11 +90,11 @@ export const ViewProfileDrawer = ({ isOpen, onClose, user }: Props) => {
               >
                 <span>
                   <LocationOn fontSize="small" />
-                  Haarlem
+                  {user.acf.city}
                 </span>
                 <span>
                   <Language fontSize="small" sx={{ marginRight: 0.2 }} />
-                  Dutch, English
+                  {user.acf.languages.join(', ')}
                 </span>
               </Typography>
             </Box>
@@ -100,67 +110,90 @@ export const ViewProfileDrawer = ({ isOpen, onClose, user }: Props) => {
               textAlign: { xs: 'left', sm: 'right' },
             }}
           >
-            <Typography
+            {/* <Typography
               variant="h2"
               sx={{ display: 'flex', gap: 0.5, justifyContent: { sm: 'flex-end' } }}
             >
               <Star color="info" />
               4.5
             </Typography>
-            <Typography variant="body1">6 Reviews</Typography>
-            <Typography variant="body2">€10,- / hour</Typography>
+            <Typography variant="body1">6 Reviews</Typography> */}
+          </Grid>
+          <Grid item xs={12}>
+            <Typography variant="body2">{user.acf.about_me}</Typography>
           </Grid>
         </Grid>
         <Divider />
         <Grid container marginTop={1} gap={1}>
           <Grid container spacing={2} paddingTop={2}>
-            <Grid item xs={12}>
-              <Typography variant="h2">{user.name}</Typography>
-            </Grid>
-            <Grid item xs={12}>
-              <Typography variant="body2">
-                Someting about me. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu
-                facilisis nisl, id pretium massa. Fusce ultricies malesuada justo vitae bibendum.
-                Aliquam eleifend mauris vel erat varius, eu luctus urna tincidunt. Aenean vitae
-                risus iaculis, ultricies nibh non, finibus ante.
-              </Typography>
-            </Grid>
-            <Grid item xs={6} md={3}>
-              <Typography variant="body1">Company</Typography>
-              <Typography variant="body2" mb={2}>
-                iO
-              </Typography>
-              <Typography variant="body1">Years of experience</Typography>
-              <Typography variant="body2">3-5 years</Typography>
-            </Grid>
-            <Grid item xs={6} md={3}>
-              <Typography variant="body1">Specalisations</Typography>
-              <Typography variant="body2" mb={2}>
-                IT, Design
-              </Typography>
-              <Typography variant="body1">CS Skills</Typography>
-              <Typography variant="body2">Engagement</Typography>
-            </Grid>
-            <Grid item xs={6} md={3}>
-              <Typography variant="body1">Seniority Level</Typography>
-              <Typography variant="body2" mb={2}>
-                Teamlead
-              </Typography>
-              <Typography variant="body1">Extra skills</Typography>
-              <Typography variant="body2">Presenting</Typography>
-            </Grid>
+            {Object.keys(options?.acf?.properties || {}).map((field) => (
+              <UserField key={field} field={field} user={user} />
+            ))}
           </Grid>
           <Grid item xs={12} mt={3}>
+            {user.acf.linkedin && (
+              <Button
+                variant="outlined"
+                href={user.acf.linkedin}
+                sx={{ marginRight: 1, marginBottom: 1 }}
+              >
+                <LinkedIn sx={{ marginRight: 1 }} />
+                View Linkedin
+              </Button>
+            )}
             <Button
               variant="contained"
               href={config.userLoggedIn ? `mailto:${user.user_email}` : paths.login}
+              sx={{ marginBottom: 1 }}
             >
               <Email sx={{ marginRight: 1 }} />
-              Get in touch with {user.name}
+              {config.userLoggedIn ? 'Get in touch' : 'Log in to get in touch'} with {user.name}
             </Button>
           </Grid>
         </Grid>
       </Container>
     </Dialog>
+  )
+}
+
+interface IUserField {
+  field: string
+  user: User
+}
+
+const UserField = ({ field, user }: IUserField) => {
+  const fieldsToIgnore = [
+    'profile_picture',
+    'is_mentor',
+    'about_me',
+    'price',
+    'city',
+    'languages',
+    'job',
+    'linkedin',
+  ]
+  if (fieldsToIgnore.find((fieldToIgnore) => fieldToIgnore === field)) {
+    return null
+  }
+  let value = ''
+
+  switch (typeof user.acf[field]) {
+    case 'string':
+      value = user.acf[field]
+      break
+    case 'object':
+      if (Array.isArray(user.acf[field])) {
+        value = user.acf[field].join(', ')
+      }
+      break
+  }
+
+  return (
+    <Grid key={field} item xs={6} md={3}>
+      <Typography variant="body1">{toSentence(field)}</Typography>
+      <Typography variant="body2" mb={2}>
+        {value}
+      </Typography>
+    </Grid>
   )
 }
