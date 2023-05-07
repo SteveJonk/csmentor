@@ -37,7 +37,6 @@ const Transition = forwardRef(function Transition(
 
 export const ViewProfileDrawer = ({ isOpen, onClose, user }: Props) => {
   const { options } = userUserOptions()
-  console.log(options)
 
   if (!user) return null
 

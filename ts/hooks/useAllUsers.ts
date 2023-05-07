@@ -35,7 +35,7 @@ export const useAllUsers = (filters) => {
       value ? acc + `&${toSnakeCase(key)}=${encodeURIComponent(value as string)}` : acc,
     ''
   )
-  console.log(queryString)
+  // console.log(queryString)
 
   const { isLoading, data, refetch } = useQuery(
     'allUsersQuery',
