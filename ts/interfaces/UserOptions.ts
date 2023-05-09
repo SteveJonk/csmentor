@@ -28,22 +28,26 @@ export interface Acf {
 }
 
 export interface AcfProperties {
-  linkedin: AboutMe
+  linkedin: FreeText
   is_mentor: IsMentor
-  profile_picture: AboutMe
-  job: AboutMe
-  city: AboutMe
-  about_me: AboutMe
-  company: AboutMe
-  specialisations: Specialisations
-  seniority_level: SeniorityLevel
-  years_of_experience: YearsOfExperience
-  cs_skills: CSSkills
-  extra_skills: ExtraSkills
-  languages: Languages
+  profile_picture: Image
+  job: FreeText
+  city: FreeText
+  about_me: FreeText
+  company: FreeText
+  specialisations: Select
+  seniority_level: Select
+  years_of_experience: Select
+  cs_skills: Select
+  extra_skills: Select
+  languages: Select
 }
 
-export interface AboutMe {
+export interface Image {
+  type: TypeElement[]
+  required: boolean
+}
+export interface FreeText {
   type: TypeElement[]
   required: boolean
 }
@@ -54,135 +58,23 @@ export enum TypeElement {
   String = 'string',
 }
 
-export interface CSSkills {
+export interface Select {
   type: string[]
   required: boolean
-  items: CSSkillsItems
+  items: SelectItems
   minItems: number
   default: any[]
 }
 
-export interface CSSkillsItems {
+export interface SelectItems {
   type: string[]
-  enum: PurpleEnum
-}
-
-export interface PurpleEnum {
-  Engagement: string
-  'Customer Journey': string
-  Social: string
-}
-
-export interface ExtraSkills {
-  type: string[]
-  required: boolean
-  items: ExtraSkillsItems
-  minItems: number
-  default: any[]
-}
-
-export interface ExtraSkillsItems {
-  type: string[]
-  enum: FluffyEnum
-}
-
-export interface FluffyEnum {
-  Presenting: string
-  'Creative Writing': string
-  Storytelling: string
+  enum: object
 }
 
 export interface IsMentor {
   type: string[]
   required: boolean
   default: boolean
-}
-
-export interface Languages {
-  type: string[]
-  required: boolean
-  items: LanguagesItems
-  minItems: number
-  default: any[]
-}
-
-export interface LanguagesItems {
-  type: string[]
-  enum: TentacledEnum
-}
-
-export interface TentacledEnum {
-  Dutch: string
-  English: string
-  French: string
-  German: string
-  Italian: string
-  Spanish: string
-}
-
-export interface SeniorityLevel {
-  type: string[]
-  required: boolean
-  items: SeniorityLevelItems
-  minItems: number
-  maxItems: number
-  default: boolean
-}
-
-export interface SeniorityLevelItems {
-  type: string[]
-  enum: StickyEnum
-}
-
-export interface StickyEnum {
-  Junior: string
-  Medior: string
-  Senior: string
-  Teamlead: string
-  CFO: string
-  CEO: string
-  CTO: string
-}
-
-export interface Specialisations {
-  type: string[]
-  required: boolean
-  items: SpecialisationsItems
-  minItems: number
-  default: any[]
-}
-
-export interface SpecialisationsItems {
-  type: string[]
-  enum: IndigoEnum
-}
-
-export interface IndigoEnum {
-  IT: string
-  Design: string
-  'Customer Success': string
-}
-
-export interface YearsOfExperience {
-  type: string[]
-  required: boolean
-  items: YearsOfExperienceItems
-  minItems: number
-  maxItems: number
-  default: boolean
-}
-
-export interface YearsOfExperienceItems {
-  type: string[]
-  enum: IndecentEnum
-}
-
-export interface IndecentEnum {
-  '1-3 years': string
-  '3-5 years': string
-  '5-8 years': string
-  '8-10 years': string
-  '10+ years': string
 }
 
 export enum AcfType {

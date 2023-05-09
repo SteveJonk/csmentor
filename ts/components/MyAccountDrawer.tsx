@@ -6,15 +6,21 @@ import Container from '@mui/material/Container'
 import Dialog from '@mui/material/Dialog'
 import Grid from '@mui/material/Grid'
 import IconButton from '@mui/material/IconButton'
-import Link from '@mui/material/Link'
 import Slide from '@mui/material/Slide'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 
+import { Checkbox, FormControlLabel, TextField } from '@mui/material'
 import { TransitionProps } from '@mui/material/transitions'
-import { forwardRef, ReactElement } from 'react'
+import { ReactElement, forwardRef, useEffect } from 'react'
+import { SubmitHandler, UseFormRegister, useForm } from 'react-hook-form'
 import { useCurrentuser } from '../hooks/useCurentUser'
+import { useEdituser } from '../hooks/useEditUser'
+import { userUserOptions } from '../hooks/useUserOptions'
+import { User } from '../interfaces/User'
+import { Select } from '../interfaces/UserOptions'
 import { CSThemeVars } from '../theme/CSThemeVars'
+import { toSentence } from '../utils/toSentence'
 
 // TODO: Add account fields
 // TODO: Add save account functionality
@@ -35,9 +41,23 @@ const Transition = forwardRef(function Transition(
 })
 
 export const MyAccountDrawer = ({ isOpen, onClose }: Props) => {
-  const { currentUser } = useCurrentuser()
+  const { currentUser, refetch } = useCurrentuser()
+  const { editUser } = useEdituser()
+  const { options } = userUserOptions()
+  const { register, handleSubmit, reset, watch } = useForm<User>()
+  const isMentor = watch('acf.is_mentor')
+
+  // Needed to do this with useEffect, because currentUser is async
+  useEffect(() => {
+    reset({ ...currentUser, email: currentUser?.user_email })
+  }, [currentUser])
 
   if (!currentUser) return null
+
+  const onSubmit: SubmitHandler<User> = (data) => {
+    editUser(data)
+    onClose()
+  }
 
   return (
     <Dialog
@@ -55,25 +75,107 @@ export const MyAccountDrawer = ({ isOpen, onClose }: Props) => {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Container maxWidth="xl">
-        <Grid container marginTop={3} gap={1}>
-          <Grid item xs={6} sm={4}>
-            <Typography variant="h3">
-              Work in progress: form for account management for {currentUser.name}
-            </Typography>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Container maxWidth="xl">
+          <Grid container marginTop={3} gap={1} rowGap={2}>
+            <Grid item xs={12} md={4}>
+              <TextField label="Name" {...register('name')} fullWidth />
+            </Grid>
+
+            <Grid item xs={12} md={4}>
+              <TextField label="Email" {...register('email')} fullWidth />
+            </Grid>
+
+            {Object.entries(options?.acf?.properties || {}).map(([key, value]) => (
+              <UserField
+                key={key}
+                field={key}
+                fieldMeta={value}
+                user={currentUser}
+                register={register}
+                isMentor={isMentor}
+              />
+            ))}
+            <Grid item xs={12}>
+              <Button variant="contained" type="submit">
+                Save
+              </Button>
+            </Grid>
           </Grid>
-          <Grid item xs={12}>
-            <Link underline="none" onClick={onClose}>
-              Change password
-            </Link>
-          </Grid>
-          <Grid item xs={12}>
-            <Button variant="contained" onClick={onClose}>
-              Save
-            </Button>
-          </Grid>
-        </Grid>
-      </Container>
+        </Container>
+      </form>
     </Dialog>
+  )
+}
+
+interface IUserField {
+  field: string
+  fieldMeta?: Select
+  user: User
+  register: UseFormRegister<User>
+  isMentor: boolean
+}
+
+const UserField = ({ field, fieldMeta, user, register, isMentor }: IUserField) => {
+  const fieldsToIgnore = [
+    'profile_picture',
+    // 'is_mentor',
+    // 'about_me',
+    // 'price',
+    // 'city',
+    // 'languages',
+    // 'job',
+    // 'linkedin',
+  ]
+  if (fieldsToIgnore.find((fieldToIgnore) => fieldToIgnore === field)) {
+    return null
+  }
+
+  if (!isMentor && field !== 'is_mentor' && field !== 'linkedin') return null
+
+  if (field === 'is_mentor') {
+    return (
+      <Grid key={field} item xs={12} md={12}>
+        <FormControlLabel
+          label="I am a mentor"
+          control={
+            <Checkbox {...register(`acf.${field}` as any)} defaultChecked={user.acf?.is_mentor} />
+          }
+        />
+      </Grid>
+    )
+  }
+
+  if (field === 'about_me') {
+    return (
+      <Grid key={field} item xs={12} md={4}>
+        <TextField
+          label={toSentence(field)}
+          {...register(`acf.${field}` as any)}
+          fullWidth
+          multiline
+          rows={6}
+        />
+      </Grid>
+    )
+  }
+
+  if (field === 'price') {
+    return (
+      <Grid key={field} item xs={12} md={4}>
+        <TextField
+          label={toSentence(field)}
+          {...register(`acf.${field}` as any)}
+          fullWidth
+          type="number"
+        />
+      </Grid>
+    )
+  }
+
+  return (
+    <Grid key={field} item xs={12} md={4}>
+      <TextField label={toSentence(field)} {...register(`acf.${field}` as any)} fullWidth />
+    </Grid>
   )
 }

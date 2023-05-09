@@ -8,7 +8,7 @@ import { User } from '../interfaces/User'
 export const useCurrentuser = () => {
   const [error, setError] = useState()
 
-  const { isLoading, data } = useQuery(
+  const { isLoading, data, refetch } = useQuery(
     'currentUserQuery',
     async () => {
       return await apiClient.get(endPoints.users + '/me')
@@ -22,5 +22,5 @@ export const useCurrentuser = () => {
 
   const currentUser: User | undefined = data?.data || undefined
 
-  return { currentUser, isLoading, error }
+  return { currentUser, isLoading, error, refetch }
 }

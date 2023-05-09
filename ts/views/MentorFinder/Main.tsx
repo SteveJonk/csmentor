@@ -13,23 +13,25 @@ export const Main = () => {
 
   const filters = useFilters()
 
-  const { users, isLoading } = useAllUsers(filters.filterState)
+  const { users, isLoading, refetch, isRefetching } = useAllUsers(filters.filterState)
 
   const handleProfileOpen = (user: User) => {
     setSelectedUser(user)
     setIsProfileOpen(true)
   }
 
+  const handleProfileClose = async () => {
+    setIsProfileOpen(false)
+  }
+
   return (
     <div className="grey-bg full-page">
-      <NavBar />
-      <ViewProfileDrawer
-        isOpen={isProfileOpen}
-        onClose={() => setIsProfileOpen(false)}
-        user={selectedUser}
-      />
+      <NavBar refetchAll={refetch} />
+      <ViewProfileDrawer isOpen={isProfileOpen} onClose={handleProfileClose} user={selectedUser} />
       <FilterHeader filters={filters} />
-      {!isLoading && <CardList users={users} onClickViewProfile={handleProfileOpen} />}
+      {!isLoading && !isRefetching && (
+        <CardList users={users} onClickViewProfile={handleProfileOpen} />
+      )}
     </div>
   )
 }

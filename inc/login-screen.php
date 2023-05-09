@@ -13,3 +13,13 @@ function customLoginCss()
 }
 
 add_action('login_enqueue_scripts', 'customLoginCss');
+
+// TODO: Later functionaliteit toevoegen om een widget te tonen op de login pagina
+// function loginHeader()
+// {
+//     echo '<h1>Heyy</h1>';
+// }
+
+// add_action('login_header', 'loginHeader', 500);
+
+add_filter('login_display_language_dropdown', '__return_false');

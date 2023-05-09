@@ -9,3 +9,55 @@
     }
   }
 }
+
+#login {
+  & #nav {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    visibility: collapse;
+    align-items: center;
+    & a {
+      visibility: visible;
+      position: relative;
+      &:first-of-type {
+        top: 10px;
+        background-color: $primary-color;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 3px;
+        transition: opacity 0.2s;
+        &:hover {
+          opacity: 0.9;
+        }
+        &::before {
+          content: 'No account yet?';
+          position: absolute;
+          top: -25px;
+          width: 200%;
+          left: 50%;
+          transform: translateX(-50%);
+          text-align: center;
+          color: #50575e;
+        }
+      }
+    }
+  }
+  & #wp-submit {
+    background-color: $secondary-color;
+    border: none;
+    color: white;
+
+    border-radius: 3px;
+    transition: opacity 0.2s;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+  & h2 {
+    display: none;
+  }
+  .message.register + form + #nav {
+    display: none;
+  }
+}

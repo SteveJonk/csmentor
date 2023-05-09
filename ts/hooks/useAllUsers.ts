@@ -17,7 +17,7 @@ export const useAllUsers = (filters) => {
   /**
     specialisations
     seniority_level
-    years_of_experience
+    experience
     cs_skills
     languages
     extra_skills
@@ -37,7 +37,7 @@ export const useAllUsers = (filters) => {
   )
   // console.log(queryString)
 
-  const { isLoading, data, refetch } = useQuery(
+  const { isLoading, data, refetch, isRefetching } = useQuery(
     'allUsersQuery',
     async () => {
       return await apiClient.get(
@@ -57,5 +57,5 @@ export const useAllUsers = (filters) => {
 
   const users: User[] | undefined = data?.data || []
 
-  return { users, isLoading, error }
+  return { users, isLoading, isRefetching, error, refetch }
 }

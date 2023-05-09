@@ -12,6 +12,7 @@ export const config = {
 
 export const paths = {
   login: '/wp-login.php',
+  lostPassword: '/wp-login.php?action=lostpassword',
 }
 
 export const endPoints = {

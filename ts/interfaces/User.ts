@@ -10,6 +10,7 @@ export interface User {
   user_email: string
   acf?: Acf
   _links?: Links
+  email?: string //Added for react hook form, use user_email instead
 }
 
 export interface Links {
