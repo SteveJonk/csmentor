@@ -35,12 +35,12 @@ export interface AcfProperties {
   city: FreeText
   about_me: FreeText
   company: FreeText
-  specialisations: Select
-  seniority_level: Select
-  years_of_experience: Select
-  cs_skills: Select
-  extra_skills: Select
-  languages: Select
+  specialisations: SelectData
+  seniority_level: SelectData
+  years_of_experience: SelectData
+  cs_skills: SelectData
+  extra_skills: SelectData
+  languages: SelectData
 }
 
 export interface Image {
@@ -58,7 +58,7 @@ export enum TypeElement {
   String = 'string',
 }
 
-export interface Select {
+export interface SelectData {
   type: string[]
   required: boolean
   items: SelectItems

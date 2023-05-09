@@ -10,7 +10,15 @@ import Slide from '@mui/material/Slide'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 
-import { Checkbox, FormControlLabel, TextField } from '@mui/material'
+import {
+  Checkbox,
+  FormControl,
+  FormControlLabel,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextField,
+} from '@mui/material'
 import { TransitionProps } from '@mui/material/transitions'
 import { ReactElement, forwardRef, useEffect } from 'react'
 import { SubmitHandler, UseFormRegister, useForm } from 'react-hook-form'
@@ -18,7 +26,7 @@ import { useCurrentuser } from '../hooks/useCurentUser'
 import { useEdituser } from '../hooks/useEditUser'
 import { userUserOptions } from '../hooks/useUserOptions'
 import { User } from '../interfaces/User'
-import { Select } from '../interfaces/UserOptions'
+import { SelectData } from '../interfaces/UserOptions'
 import { CSThemeVars } from '../theme/CSThemeVars'
 import { toSentence } from '../utils/toSentence'
 
@@ -55,6 +63,7 @@ export const MyAccountDrawer = ({ isOpen, onClose }: Props) => {
   if (!currentUser) return null
 
   const onSubmit: SubmitHandler<User> = (data) => {
+    console.log(data)
     editUser(data)
     onClose()
   }
@@ -110,7 +119,7 @@ export const MyAccountDrawer = ({ isOpen, onClose }: Props) => {
 
 interface IUserField {
   field: string
-  fieldMeta?: Select
+  fieldMeta?: SelectData
   user: User
   register: UseFormRegister<User>
   isMentor: boolean
@@ -169,6 +178,31 @@ const UserField = ({ field, fieldMeta, user, register, isMentor }: IUserField) =
           fullWidth
           type="number"
         />
+      </Grid>
+    )
+  }
+
+  if (fieldMeta.items) {
+    const options = Object.keys(fieldMeta.items.enum)
+    const value = user.acf?.[field]
+    return (
+      <Grid key={field} item xs={12} md={4}>
+        <FormControl fullWidth>
+          <InputLabel>{toSentence(field)}</InputLabel>
+          <Select
+            fullWidth
+            multiple
+            label={toSentence(field)}
+            defaultValue={typeof value === 'object' ? value : [value]}
+            inputProps={register(`acf.${field}` as any)}
+          >
+            {options.map((option) => (
+              <MenuItem key={option} value={option}>
+                {option}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
       </Grid>
     )
   }
