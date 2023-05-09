@@ -13,7 +13,7 @@ export const Main = () => {
 
   const filters = useFilters()
 
-  const { users, isLoading, refetch, isRefetching } = useAllUsers(filters.filterState)
+  const { users, isLoading, refetch } = useAllUsers(filters.filterState)
 
   const handleProfileOpen = (user: User) => {
     setSelectedUser(user)
@@ -29,9 +29,7 @@ export const Main = () => {
       <NavBar refetchAll={refetch} />
       <ViewProfileDrawer isOpen={isProfileOpen} onClose={handleProfileClose} user={selectedUser} />
       <FilterHeader filters={filters} />
-      {!isLoading && !isRefetching && (
-        <CardList users={users} onClickViewProfile={handleProfileOpen} />
-      )}
+      {!isLoading && <CardList users={users} onClickViewProfile={handleProfileOpen} />}
     </div>
   )
 }

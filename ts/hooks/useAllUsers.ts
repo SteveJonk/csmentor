@@ -8,8 +8,15 @@ import { toSnakeCase } from '../utils/toSnakeCase'
 import useDebounce from './useDebounce'
 
 export const useAllUsers = (filters) => {
-  const { name, languages, seniorityLevel, specialisations, csSkills, experience, extraSkills } =
-    filters
+  const {
+    name,
+    languages,
+    seniorityLevel,
+    specialisations,
+    csSkills,
+    yearsOfExperience,
+    extraSkills,
+  } = filters
 
   const [error, setError] = useState()
   const debouncedName = useDebounce(name, 300)
@@ -28,14 +35,14 @@ export const useAllUsers = (filters) => {
     seniorityLevel,
     specialisations,
     csSkills,
-    experience,
+    yearsOfExperience,
     extraSkills,
   }).reduce(
     (acc, [key, value]) =>
       value ? acc + `&${toSnakeCase(key)}=${encodeURIComponent(value as string)}` : acc,
     ''
   )
-  // console.log(queryString)
+  console.log(queryString)
 
   const { isLoading, data, refetch, isRefetching } = useQuery(
     'allUsersQuery',
@@ -53,7 +60,15 @@ export const useAllUsers = (filters) => {
 
   useEffect(() => {
     refetch()
-  }, [debouncedName, languages, seniorityLevel, specialisations, csSkills, experience, extraSkills])
+  }, [
+    debouncedName,
+    languages,
+    seniorityLevel,
+    specialisations,
+    csSkills,
+    yearsOfExperience,
+    extraSkills,
+  ])
 
   const users: User[] | undefined = data?.data || []
 
