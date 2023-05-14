@@ -22,6 +22,7 @@ import {
 import { TransitionProps } from '@mui/material/transitions'
 import { ReactElement, forwardRef, useEffect } from 'react'
 import { SubmitHandler, UseFormRegister, useForm } from 'react-hook-form'
+import { config } from '../config/config'
 import { useCurrentuser } from '../hooks/useCurentUser'
 import { useEdituser } from '../hooks/useEditUser'
 import { userUserOptions } from '../hooks/useUserOptions'
@@ -29,10 +30,6 @@ import { User } from '../interfaces/User'
 import { SelectData } from '../interfaces/UserOptions'
 import { CSThemeVars } from '../theme/CSThemeVars'
 import { toSentence } from '../utils/toSentence'
-
-// TODO: Add account fields
-// TODO: Add save account functionality
-// TODO: Add changePassword functionality
 
 interface Props {
   isOpen: boolean
@@ -49,21 +46,29 @@ const Transition = forwardRef(function Transition(
 })
 
 export const MyAccountDrawer = ({ isOpen, onClose }: Props) => {
-  const { currentUser, refetch } = useCurrentuser()
-  const { editUser } = useEdituser()
+  const { currentUser } = useCurrentuser()
+  const { editUser, editPicture } = useEdituser()
   const { options } = userUserOptions()
   const { register, handleSubmit, reset, watch } = useForm<User>()
   const isMentor = watch('acf.is_mentor')
 
   // Needed to do this with useEffect, because currentUser is async
   useEffect(() => {
-    reset({ ...currentUser, email: currentUser?.user_email })
+    reset({
+      ...currentUser,
+      email: currentUser?.user_email,
+      // @ts-ignore
+      acf: { ...currentUser?.acf, profile_picture: currentUser?.acf?.profile_picture?.id },
+    })
   }, [currentUser])
 
   if (!currentUser) return null
 
+  const handleProfilePicture = (e: React.ChangeEvent<HTMLInputElement>) => {
+    editPicture(e.target.files[0])
+  }
+
   const onSubmit: SubmitHandler<User> = (data) => {
-    console.log(data)
     editUser(data)
     onClose()
   }
@@ -87,6 +92,29 @@ export const MyAccountDrawer = ({ isOpen, onClose }: Props) => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <Container maxWidth="xl">
           <Grid container marginTop={3} gap={1} rowGap={2}>
+            <Grid item xs={12} sx={{ display: 'flex', flexDirection: 'column' }}>
+              <img
+                src={
+                  currentUser?.acf?.profile_picture.sizes?.large
+                    ? currentUser?.acf?.profile_picture.sizes?.large
+                    : `${config.themeFolder}/assets/PlaceholderProfilePicture.jpg`
+                }
+                width={150}
+                height={150}
+                style={{
+                  objectFit: 'cover',
+                  borderRadius: '50%',
+                }}
+              />
+              <Button
+                variant="contained"
+                component="label"
+                sx={{ width: 'fit-content', marginY: 1 }}
+              >
+                Change Picture
+                <input type="file" hidden onChange={handleProfilePicture} />
+              </Button>
+            </Grid>
             <Grid item xs={12} md={4}>
               <TextField label="Name" {...register('name')} fullWidth />
             </Grid>
@@ -105,7 +133,7 @@ export const MyAccountDrawer = ({ isOpen, onClose }: Props) => {
                 isMentor={isMentor}
               />
             ))}
-            <Grid item xs={12}>
+            <Grid item xs={12} mb={2}>
               <Button variant="contained" type="submit">
                 Save
               </Button>

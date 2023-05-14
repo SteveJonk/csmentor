@@ -12,9 +12,58 @@
     align-items: center;
   }
   &__logo {
+    margin-right: 10px;
     & img {
       max-height: 100%;
       max-width: 200px;
     }
+  }
+  &__nav {
+    justify-self: flex-start;
+    margin-right: auto;
+    @include Mobile {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      padding-bottom: 15px;
+      background-color: white;
+      max-height: 0;
+      overflow-y: hidden;
+      transition: max-height 0.7s;
+    }
+    &.show {
+      max-height: 60vh;
+    }
+    & ul {
+      display: flex;
+      margin-bottom: 0;
+      & li {
+        margin-right: 20px;
+        padding-left: 0;
+        list-style: none;
+        &.current-menu-item,
+        &:hover {
+          & a {
+            color: $primary-color;
+          }
+        }
+        & a {
+          text-decoration: none;
+          transition: color 0.3s ease-out;
+        }
+      }
+      @include Mobile {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+  }
+  &__hamburger {
+    color: $common-black;
+    fill: $common-black;
+    height: 20px;
+    width: 20px;
+    align-self: center;
   }
 }

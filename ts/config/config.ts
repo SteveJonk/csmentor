@@ -17,4 +17,5 @@ export const paths = {
 
 export const endPoints = {
   users: '/wp-json/wp/v2/users',
+  media: '/wp-json/wp/v2/media',
 }

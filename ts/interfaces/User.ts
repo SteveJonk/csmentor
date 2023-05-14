@@ -41,7 +41,7 @@ export interface Acf {
 
 export interface ProfilePicture {
   ID?: number
-  id?: number
+  id: number
   title?: string
   filename?: string
   filesize?: number

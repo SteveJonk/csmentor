@@ -11,7 +11,7 @@ export const useCurrentuser = () => {
   const { isLoading, data, refetch } = useQuery(
     'currentUserQuery',
     async () => {
-      return await apiClient.get(endPoints.users + '/me')
+      return await apiClient.get(endPoints.users + '/me?acf_format=standard')
     },
     {
       onError: (err: AxiosError) => {
