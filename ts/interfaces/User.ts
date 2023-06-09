@@ -28,6 +28,7 @@ export interface Acf {
   profile_picture?: ProfilePicture
   job?: string
   city?: string
+  country?: string
   about_me?: string
   company?: string
   specialisations?: string[]

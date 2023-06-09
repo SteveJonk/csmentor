@@ -19,6 +19,7 @@ export const FilterHeader = ({ filters }) => {
   const {
     filterState: {
       name,
+      country,
       languages,
       seniorityLevel,
       specialisations,
@@ -28,6 +29,7 @@ export const FilterHeader = ({ filters }) => {
     },
     filterStateChange: {
       setName,
+      setCountry,
       setLanguages,
       setSeniorityLevel,
       setSpecialisations,
@@ -36,6 +38,7 @@ export const FilterHeader = ({ filters }) => {
       setExtraSkills,
     },
     options: {
+      countryOptions,
       languageOptions,
       seniorityLevelOptions,
       specalisationsOptions,
@@ -54,6 +57,14 @@ export const FilterHeader = ({ filters }) => {
         <Grid container marginTop={2} spacing={2}>
           <Grid item xs={12} sm={12}>
             <SearchBox onChange={setName} label={'Search by name'} value={name} />
+          </Grid>
+          <Grid item xs={6} sm={3}>
+            <FormSelect
+              onChange={setCountry}
+              label="Country"
+              options={countryOptions}
+              selectedValue={country}
+            />
           </Grid>
           <Grid item xs={6} sm={3}>
             <FormSelect
@@ -82,7 +93,7 @@ export const FilterHeader = ({ filters }) => {
           <Grid item xs={6} sm={3}>
             <FormSelect
               onChange={setCSSkills}
-              label="CS Skills"
+              label="Customer Success Skills"
               options={csSkillsOptions}
               selectedValue={csSkills}
             />

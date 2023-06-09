@@ -221,7 +221,7 @@ const UserField = ({ field, fieldMeta, user, register, isMentor }: IUserField) =
     const options = Object.keys(fieldMeta.items.enum)
     const value = user.acf?.[field]
     const isSingle = fieldMeta.maxItems === 1
-    console.log(field, ': ', fieldMeta.maxItems, isSingle)
+
     return (
       <Grid key={field} item xs={12} md={4}>
         <FormControl fullWidth>

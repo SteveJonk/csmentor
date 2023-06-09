@@ -10,6 +10,7 @@ import useDebounce from './useDebounce'
 export const useAllUsers = (filters) => {
   const {
     name,
+    country,
     languages,
     seniorityLevel,
     specialisations,
@@ -22,6 +23,7 @@ export const useAllUsers = (filters) => {
   const debouncedName = useDebounce(name, 300)
 
   /**
+    country
     specialisations
     seniority_level
     experience
@@ -31,6 +33,7 @@ export const useAllUsers = (filters) => {
    */
 
   const queryString = Object.entries({
+    country,
     languages,
     seniorityLevel,
     specialisations,
@@ -47,7 +50,7 @@ export const useAllUsers = (filters) => {
     'allUsersQuery',
     async () => {
       return await apiClient.get(
-        `${endPoints.users}?acf_format=standard${queryString}&search=${name}`
+        `${endPoints.users}?per_page=100&acf_format=standard${queryString}&search=${name}`
       )
     },
     {
@@ -61,6 +64,7 @@ export const useAllUsers = (filters) => {
     refetch()
   }, [
     debouncedName,
+    country,
     languages,
     seniorityLevel,
     specialisations,

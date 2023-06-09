@@ -89,7 +89,7 @@ export const ViewProfileDrawer = ({ isOpen, onClose, user }: Props) => {
               >
                 <span>
                   <LocationOn fontSize="small" />
-                  {user.acf.city}
+                  {user.acf.city}, {user.acf.country}
                 </span>
                 <span>
                   <Language fontSize="small" sx={{ marginRight: 0.2 }} />
@@ -167,6 +167,7 @@ const UserField = ({ field, user }: IUserField) => {
     'about_me',
     'price',
     'city',
+    'country',
     'languages',
     'job',
     'linkedin',

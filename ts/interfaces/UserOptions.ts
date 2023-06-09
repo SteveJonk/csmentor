@@ -36,6 +36,7 @@ export interface AcfProperties {
   about_me: FreeText
   company: FreeText
   specialisations: SelectData
+  country: SelectData
   seniority_level: SelectData
   years_of_experience: SelectData
   cs_skills: SelectData

@@ -5,6 +5,7 @@ export const useFilters = () => {
   const { options } = userUserOptions()
 
   const [name, setName] = useState('')
+  const [country, setCountry] = useState('')
   const [languages, setLanguages] = useState('')
   const [seniorityLevel, setSeniorityLevel] = useState('')
   const [specialisations, setSpecialisations] = useState('')
@@ -16,6 +17,7 @@ export const useFilters = () => {
   const [location, setLocation] = useState('')
 
   const languageOptions = Object.values(options?.acf?.properties?.languages?.items?.enum || {})
+  const countryOptions = Object.values(options?.acf?.properties?.country?.items?.enum || {})
   const seniorityLevelOptions = Object.values(
     options?.acf?.properties?.seniority_level?.items?.enum || {}
   )
@@ -33,6 +35,7 @@ export const useFilters = () => {
   return {
     filterState: {
       name,
+      country,
       languages,
       seniorityLevel,
       specialisations,
@@ -42,6 +45,7 @@ export const useFilters = () => {
     },
     filterStateChange: {
       setName,
+      setCountry,
       setLanguages,
       setSeniorityLevel,
       setSpecialisations,
@@ -50,6 +54,7 @@ export const useFilters = () => {
       setExtraSkills,
     },
     options: {
+      countryOptions,
       languageOptions,
       seniorityLevelOptions,
       specalisationsOptions,
