@@ -67,3 +67,13 @@ add_filter('rest_user_query', function ($args) {
 
     return $args;
 }, 15, 2);
+
+// Allow contributors to upload media
+function add_custom_capability_to_editor_role()
+{
+
+    $contributor = get_role('contributor');
+    $contributor->add_cap('upload_files');
+}
+
+add_action('init', 'add_custom_capability_to_editor_role');

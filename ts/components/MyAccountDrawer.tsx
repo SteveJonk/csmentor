@@ -58,7 +58,12 @@ export const MyAccountDrawer = ({ isOpen, onClose }: Props) => {
       ...currentUser,
       email: currentUser?.user_email,
       // @ts-ignore
-      acf: { ...currentUser?.acf, profile_picture: currentUser?.acf?.profile_picture?.id },
+      acf: {
+        ...currentUser?.acf,
+        price: currentUser?.acf.price || '0',
+        // @ts-ignore
+        profile_picture: currentUser?.acf?.profile_picture?.id,
+      },
     })
   }, [currentUser])
 
@@ -190,6 +195,7 @@ const UserField = ({ field, fieldMeta, user, register, isMentor }: IUserField) =
           label={toSentence(field)}
           {...register(`acf.${field}` as any)}
           fullWidth
+          required={fieldMeta.required}
           multiline
           rows={6}
         />
@@ -202,7 +208,8 @@ const UserField = ({ field, fieldMeta, user, register, isMentor }: IUserField) =
       <Grid key={field} item xs={12} md={4}>
         <TextField
           label={toSentence(field)}
-          {...register(`acf.${field}` as any)}
+          {...register('acf.price')}
+          required={fieldMeta.required}
           fullWidth
           type="number"
         />
@@ -213,15 +220,20 @@ const UserField = ({ field, fieldMeta, user, register, isMentor }: IUserField) =
   if (fieldMeta.items) {
     const options = Object.keys(fieldMeta.items.enum)
     const value = user.acf?.[field]
+    const isSingle = fieldMeta.maxItems === 1
+    console.log(field, ': ', fieldMeta.maxItems, isSingle)
     return (
       <Grid key={field} item xs={12} md={4}>
         <FormControl fullWidth>
-          <InputLabel>{toSentence(field)}</InputLabel>
+          <InputLabel>{`${toSentence(field)}${fieldMeta.required ? ' *' : ''}`}</InputLabel>
           <Select
+            required={fieldMeta.required}
             fullWidth
-            multiple
+            multiple={!isSingle}
             label={toSentence(field)}
-            defaultValue={typeof value === 'object' ? value : [value]}
+            defaultValue={
+              value !== false ? (typeof value === 'object' ? value : [value]) : undefined
+            }
             inputProps={register(`acf.${field}` as any)}
           >
             {options.map((option) => (

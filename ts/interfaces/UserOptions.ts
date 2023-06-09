@@ -63,6 +63,7 @@ export interface SelectData {
   required: boolean
   items: SelectItems
   minItems: number
+  maxItems?: number
   default: any[]
 }
 

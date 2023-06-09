@@ -79,7 +79,7 @@ export const ViewProfileDrawer = ({ isOpen, onClose, user }: Props) => {
               <Typography variant="h3" marginBottom={1} color="grey">
                 {user.acf.job}
               </Typography>
-              <Typography variant="body2">€{user.acf.price} / hour</Typography>
+              {/* <Typography variant="body2">€{user.acf.price} / hour</Typography> */}
               <Typography
                 variant="body2"
                 color="grey"

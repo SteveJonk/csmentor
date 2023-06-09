@@ -77,7 +77,7 @@ export const UserCard = ({ user, onClickViewProfile }: Props) => (
             4.5
           </Typography>
           <Typography variant="body1">6 Reviews</Typography> */}
-          <Typography variant="body2">{`€${user.acf.price} / hour`}</Typography>
+          {/* <Typography variant="body2">{`€${user.acf.price} / hour`}</Typography> */}
         </Grid>
       </Grid>
       <Divider />
