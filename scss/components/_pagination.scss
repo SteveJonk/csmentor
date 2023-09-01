@@ -1,0 +1,26 @@
+.nav-links {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  & .page-numbers {
+    height: 25px;
+    width: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid $secondary-color;
+    border-radius: 1000px;
+    &.current {
+      background-color: $secondary-color;
+      color: white;
+    }
+    &.next,
+    &.prev {
+      width: auto;
+      padding: 0 10px;
+    }
+  }
+}
