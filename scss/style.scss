@@ -34,6 +34,9 @@
 @import './components/card';
 @import './components/carousel';
 @import './components/forms';
+@import './components/post-header';
+@import './components/post-card';
+@import './components/post-list';
 
 /* Base stuff */
 html {
@@ -54,5 +57,5 @@ main {
 }
 
 #wpadminbar {
-  z-index: 19;
+  z-index: 101;
 }

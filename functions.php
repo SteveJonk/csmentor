@@ -29,6 +29,8 @@ function theme_features()
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
     add_post_type_support('post', 'page-attributes');
+
+    add_image_size('header', 1280, 0);
 };
 
 

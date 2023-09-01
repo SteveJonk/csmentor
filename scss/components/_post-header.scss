@@ -1,0 +1,22 @@
+.post-header {
+  width: 100%;
+  overflow-x: hidden;
+  &__image {
+    width: 100%;
+    border-radius: 20px;
+  }
+  &__breadcrumbs {
+    margin-top: 30px;
+    font-weight: 300;
+    color: $grey-300;
+    & a {
+      color: $grey-300;
+      text-decoration: none;
+    }
+  }
+  &__title {
+    font-weight: 700;
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+}
