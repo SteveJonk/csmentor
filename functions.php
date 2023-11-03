@@ -16,6 +16,7 @@ include "inc/custom-post-types/galleries.php";
 include "inc/custom-post-types/testimonials.php";
 include "inc/components/testimonial-slider.php";
 include "inc/components/gallery-slider.php";
+include "inc/woocommerce/product-list-page.php";
 
 
 function theme_features()
@@ -46,3 +47,5 @@ function remove_admin_bar()
 }
 
 add_action('after_setup_theme', 'remove_admin_bar');
+
+add_theme_support('admin-bar', array('callback' => '__return_false'));
