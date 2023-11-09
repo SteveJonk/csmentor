@@ -10,6 +10,7 @@
     "watch": "gulp watch",
     "styles": "gulp styles",
     "scripts": "gulp scripts",
+    "build": "NODE_ENV=production gulp build",
     "minify": "gulp minify"
   },
   "author": "",
