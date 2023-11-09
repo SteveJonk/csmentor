@@ -9,7 +9,7 @@ module.exports = {
   entry: !isProduction
     ? [
         'webpack/hot/dev-server',
-        'webpack-hot-middleware/client',
+        // 'webpack-hot-middleware/client',
         settings.themeLocation + 'ts/scripts.ts',
       ]
     : [settings.themeLocation + 'ts/scripts.ts'],

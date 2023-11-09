@@ -29,6 +29,7 @@ import { userUserOptions } from '../hooks/useUserOptions'
 import { User } from '../interfaces/User'
 import { SelectData } from '../interfaces/UserOptions'
 import { CSThemeVars } from '../theme/CSThemeVars'
+import { sanitizeData } from '../utils/sanitizeData'
 import { toSentence } from '../utils/toSentence'
 
 interface Props {
@@ -74,7 +75,7 @@ export const MyAccountDrawer = ({ isOpen, onClose }: Props) => {
   }
 
   const onSubmit: SubmitHandler<User> = (data) => {
-    editUser(data)
+    editUser(sanitizeData(data, options))
     onClose()
   }
 
