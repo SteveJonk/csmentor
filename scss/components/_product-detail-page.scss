@@ -1,0 +1,95 @@
+.woocommerce {
+  & div.product {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    & .images,
+    & .summary {
+      width: 42%;
+    }
+    & .products {
+      margin-top: 30px;
+      margin-bottom: 0;
+      width: 100%;
+    }
+    & form.cart {
+      & div.quantity {
+        margin-right: 10px;
+      }
+    }
+    & .variations_form {
+      @include Mobile {
+        margin-bottom: 0;
+      }
+      & .variations {
+        & tbody {
+          & > tr {
+            & > th {
+              text-align: left;
+              display: block;
+              width: auto !important;
+
+              & .woo-selected-variation-item-name {
+                display: none;
+              }
+            }
+
+            & > td {
+              margin-bottom: 10px;
+              display: block;
+
+              & ul {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+
+                & li {
+                  background-color: white;
+                  border: 1px solid $grey-300;
+                  padding: 0 10px;
+                  font-weight: 500;
+                  cursor: pointer;
+                  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+                  min-width: 44px;
+                  text-align: center;
+                  border-radius: 1000px;
+                  &:hover,
+                  &.selected {
+                    border-color: $common-black;
+                    background-color: $common-black;
+                    color: white;
+                  }
+
+                  &.disabled {
+                    opacity: 0.3;
+
+                    &:hover {
+                      border-color: inherit;
+                      background-color: inherit;
+                      color: inherit;
+                      cursor: default;
+                    }
+                  }
+                }
+              }
+
+              & .reset_variations {
+                display: block;
+                margin-top: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.lg-outer {
+  & .lg-sub-html {
+    display: none;
+  }
+}

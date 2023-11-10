@@ -59,6 +59,11 @@
       }
     }
   }
+  &__cta {
+    & a {
+      text-wrap: nowrap;
+    }
+  }
   &__hamburger {
     color: $common-black;
     fill: $common-black;

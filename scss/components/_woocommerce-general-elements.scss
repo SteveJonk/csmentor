@@ -1,0 +1,95 @@
+.woocommerce {
+  & .woocommerce-breadcrumb {
+    margin-top: 30px;
+  }
+
+  & .woocommerce-store-notice {
+    background-color: $primary-color;
+  }
+
+  & .button {
+    background-color: $primary-color !important;
+    border-radius: 1000px !important;
+    color: white !important;
+  }
+
+  & .price {
+    color: $success-color !important;
+  }
+
+  & .quantity {
+    & input[type='number'] {
+      height: 31px;
+      border-color: $grey-200 !important;
+      border-width: 1px;
+      border-style: solid;
+      border-radius: 5px;
+      outline: none !important;
+    }
+  }
+
+  & .woocommerce-notices-wrapper {
+    & .woocommerce-message {
+      border-radius: 10px;
+      border-top-color: $secondary-color;
+
+      &::before {
+        color: $secondary-color;
+      }
+
+      & .button {
+        background-color: transparent !important;
+        color: $secondary-color !important;
+        border: 1px solid $secondary-color !important;
+        font-weight: 400;
+        transition: background-color 0.2s, color 0.2s;
+        &:hover {
+          background-color: $secondary-color !important;
+          color: white !important;
+        }
+      }
+
+      @include Mobile {
+        display: flex;
+        flex-direction: column-reverse;
+        & .button {
+          width: fit-content;
+          margin-top: 10px;
+          float: none !important;
+          display: block;
+        }
+      }
+    }
+  }
+
+  & input,
+  & textarea {
+    padding: 8px 10px;
+    font-family: $text-main;
+    box-sizing: border-box;
+    border: 1px solid $grey-200;
+    border-radius: 10px;
+  }
+  & textarea {
+    min-height: 100px;
+  }
+
+  & .selection {
+    & .select2-selection {
+      padding: 8px 10px;
+      font-family: $text-main;
+      box-sizing: border-box;
+      border: 1px solid $grey-200;
+      border-radius: 10px;
+      height: 40px;
+      &__rendered {
+        display: block;
+        // padding: 8px 10px;
+      }
+      &__arrow {
+        top: 8px;
+        right: 5px;
+      }
+    }
+  }
+}
