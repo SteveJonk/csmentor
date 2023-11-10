@@ -58,7 +58,6 @@ export const useEdituser = () => {
 
   useEffect(() => {
     refetch()
-    // refetchAll()
   }, [editUserResponse])
 
   if (error) console.error(error)
