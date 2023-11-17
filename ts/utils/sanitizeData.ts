@@ -17,8 +17,11 @@ export const sanitizeData = (data: User, options: UserOptions): User => {
       const existingValues = value?.filter((v: string) => {
         return Object.keys(acfProperties[key].items.enum).includes(v)
       })
-      return { [key]: existingValues, ...acc }
+      return { [key]: existingValues.length > 0 ? existingValues : null, ...acc }
     }
+
+    // Happens when the user has not filled in a single select field
+    if (value === false) return { [key]: null, ...acc }
 
     return { [key]: value, ...acc }
   }, {})

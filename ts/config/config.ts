@@ -1,13 +1,13 @@
 export const config = {
   apiBaseUrl: '',
   // @ts-ignore
-  nonce: wpApiSettings?.nonce,
+  nonce: wpApiSettingsStef?.nonce,
   // @ts-ignore
-  faunaKey: wpApiSettings?.faunaKey,
+  faunaKey: wpApiSettingsStef?.faunaKey,
   // @ts-ignore
-  themeFolder: wpApiSettings?.themeFolder,
+  themeFolder: wpApiSettingsStef?.themeFolder,
   // @ts-ignore
-  userLoggedIn: wpApiSettings?.userLoggedIn ? true : false,
+  userLoggedIn: wpApiSettingsStef?.userLoggedIn ? true : false,
 }
 
 export const paths = {

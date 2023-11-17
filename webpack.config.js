@@ -1,7 +1,6 @@
 const webpack = require('webpack')
 const path = require('path')
 settings = require('./settings')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 const isProduction = process.env.NODE_ENV === 'production'
 

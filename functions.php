@@ -82,3 +82,26 @@ function hide_shipping_when_free_is_available($rates, $package)
 }
 
 add_filter('woocommerce_package_rates', 'hide_shipping_when_free_is_available', 10, 2);
+
+/**
+ * Prevent update notification for plugin
+ * http://www.thecreativedev.com/disable-updates-for-specific-plugin-in-wordpress/
+ * Place in theme functions.php or at bottom of wp-config.php
+ */
+function disable_plugin_updates($value)
+{
+
+    $pluginsToDisable = [
+        'advanced-custom-fields/acf.php',
+    ];
+
+    if (isset($value) && is_object($value)) {
+        foreach ($pluginsToDisable as $plugin) {
+            if (isset($value->response[$plugin])) {
+                unset($value->response[$plugin]);
+            }
+        }
+    }
+    return $value;
+}
+add_filter('site_transient_update_plugins', 'disable_plugin_updates');

@@ -3,11 +3,14 @@ import { useEffect, useState } from 'react'
 import { useMutation } from 'react-query'
 import apiClient from '../api/apiClient'
 import { endPoints } from '../config/config'
+import { sanitizeData } from '../utils/sanitizeData'
 import { User } from './../interfaces/User'
 import { useCurrentuser } from './useCurentUser'
+import { userUserOptions } from './useUserOptions'
 
 export const useEdituser = () => {
   const { currentUser, refetch } = useCurrentuser()
+  const { options } = userUserOptions()
   const [error, setError] = useState()
 
   const {
@@ -49,10 +52,15 @@ export const useEdituser = () => {
 
   useEffect(() => {
     if (editPictureResponse) {
-      editUser({
-        ...currentUser,
-        acf: { ...currentUser.acf, profile_picture: editPictureResponse.id },
-      })
+      editUser(
+        sanitizeData(
+          {
+            ...currentUser,
+            acf: { ...currentUser.acf, profile_picture: editPictureResponse.id },
+          },
+          options
+        )
+      )
     }
   }, [editPictureResponse])
 
@@ -60,7 +68,15 @@ export const useEdituser = () => {
     refetch()
   }, [editUserResponse])
 
-  if (error) console.error(error)
+  useEffect(() => {
+    if (error) {
+      console.error(error)
+      alert(
+        'Something went wrong while updating your profile. Please contact support with the following error: ' +
+          JSON.stringify(error)
+      )
+    }
+  }, [error])
 
   return {
     editPicture,

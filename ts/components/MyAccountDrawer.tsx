@@ -48,7 +48,7 @@ const Transition = forwardRef(function Transition(
 
 export const MyAccountDrawer = ({ isOpen, onClose }: Props) => {
   const { currentUser } = useCurrentuser()
-  const { editUser, editPicture } = useEdituser()
+  const { editUser, editPicture, error } = useEdituser()
   const { options } = userUserOptions()
   const { register, handleSubmit, reset, watch } = useForm<User>()
   const isMentor = watch('acf.is_mentor')
