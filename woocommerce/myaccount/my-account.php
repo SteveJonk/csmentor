@@ -1,3 +1,4 @@
+<h1 class="post-header__title" style="margin-top: 30px;"><?php the_title(); ?></h1>
 <?php
 
 /**

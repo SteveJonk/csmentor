@@ -42,6 +42,7 @@
 @import './components/product-detail-page';
 @import './components/product-list-page';
 @import './components/woocommerce-general-elements';
+@import './components/account';
 
 /* Base stuff */
 html {
@@ -53,12 +54,22 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
 }
 
 main {
   height: 100%;
+  min-height: 100vh;
+  &.main {
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    & > * {
+      width: 100%;
+    }
+  }
 }
 
 #wpadminbar {

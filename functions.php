@@ -18,6 +18,7 @@ include "inc/components/testimonial-slider.php";
 include "inc/components/gallery-slider.php";
 include "inc/woocommerce/product-list-page.php";
 include "inc/woocommerce/product-detail-page.php";
+include "inc/woocommerce/account.php";
 
 
 function theme_features()

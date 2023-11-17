@@ -1,0 +1,36 @@
+.woocommerce {
+    & .woocommerce-MyAccount-navigation {
+      background-color: $grey-100;
+      & ul {
+        list-style: none;
+        padding: 0;
+        margin: 0.5em 0;
+        & > li {
+          padding: 0.3em 0.5em;
+          & a {
+            text-decoration: none;
+          }
+          &.is-active {
+            font-weight: 500;
+          }
+        }
+      }
+    }
+    & .woocommerce-MyAccount-content {
+      & p {
+        margin-top: 0;
+      }
+      & .edit-account {
+        & em {
+          font-size: 0.8rem;
+          font-style: normal;
+        }
+        & fieldset {
+          border: none;
+          margin: 1em 0;
+          padding: 0;
+        }
+      }
+    }
+  }
+  

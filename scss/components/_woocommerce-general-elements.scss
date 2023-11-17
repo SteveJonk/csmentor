@@ -28,8 +28,10 @@
     }
   }
 
-  & .woocommerce-notices-wrapper {
-    & .woocommerce-message {
+  & .woocommerce-notices-wrapper,
+  & .woocommerce-MyAccount-content {
+    & .woocommerce-message,
+    & .woocommerce-info {
       border-radius: 10px;
       border-top-color: $secondary-color;
 
