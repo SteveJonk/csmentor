@@ -39,18 +39,59 @@
       display: flex;
       margin-bottom: 0;
       & li {
+        position: relative;
         margin-right: 20px;
         padding-left: 0;
         list-style: none;
         &.current-menu-item,
         &:hover {
-          & a {
+          & > a {
             color: $primary-color;
+          }
+        }
+        &:hover {
+          & > a {
+            @include Tablet {
+              color: $common-black;
+            }
           }
         }
         & a {
           text-decoration: none;
           transition: color 0.3s ease-out;
+        }
+        & .sub-menu {
+          position: absolute;
+          padding-left: 0;
+          padding: 1em;
+          display: none;
+          flex-direction: column;
+          background-color: white;
+          z-index: 10;
+          box-shadow: 0 4px 50px rgba(0, 0, 0, 0.1);
+          margin-top: 3px;
+          & > li {
+            & > a {
+              text-wrap: nowrap;
+            }
+          }
+          @include Mobile {
+            position: static;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 0;
+            box-shadow: none;
+            padding: 0.8em;
+          }
+        }
+        &:hover .sub-menu {
+          display: flex;
+          @include Tablet {
+            display: none;
+          }
+        }
+        &.show-sub-menu .sub-menu {
+          display: flex;
         }
       }
       @include Mobile {

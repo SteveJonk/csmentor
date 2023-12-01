@@ -327,16 +327,57 @@ section.wp-block-group {
   margin-bottom: 0;
 }
 .header__nav ul li {
+  position: relative;
   margin-right: 20px;
   padding-left: 0;
   list-style: none;
 }
-.header__nav ul li.current-menu-item a, .header__nav ul li:hover a {
+.header__nav ul li.current-menu-item > a, .header__nav ul li:hover > a {
   color: #1839f2;
+}
+@media (max-width: 769px) {
+  .header__nav ul li:hover > a {
+    color: #383b3d;
+  }
 }
 .header__nav ul li a {
   text-decoration: none;
   transition: color 0.3s ease-out;
+}
+.header__nav ul li .sub-menu {
+  position: absolute;
+  padding-left: 0;
+  padding: 1em;
+  display: none;
+  flex-direction: column;
+  background-color: white;
+  z-index: 10;
+  box-shadow: 0 4px 50px rgba(0, 0, 0, 0.1);
+  margin-top: 3px;
+}
+.header__nav ul li .sub-menu > li > a {
+  text-wrap: nowrap;
+}
+@media (max-width: 530px) {
+  .header__nav ul li .sub-menu {
+    position: static;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 0;
+    box-shadow: none;
+    padding: 0.8em;
+  }
+}
+.header__nav ul li:hover .sub-menu {
+  display: flex;
+}
+@media (max-width: 769px) {
+  .header__nav ul li:hover .sub-menu {
+    display: none;
+  }
+}
+.header__nav ul li.show-sub-menu .sub-menu {
+  display: flex;
 }
 @media (max-width: 530px) {
   .header__nav ul {
