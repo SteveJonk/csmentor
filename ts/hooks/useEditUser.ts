@@ -33,6 +33,26 @@ export const useEdituser = (onSuccess: () => void) => {
     }
   )
 
+  // Double mutation is needed to prevent closing the drawer when the picture is updated
+  const {
+    isLoading: isUserPictureLoading,
+    data: userPictureData,
+    mutate: editUserPicture,
+  } = useMutation(
+    'editUserMutation',
+    async (updatedUser: User) => {
+      return await apiClient.post(endPoints.users + '/me', updatedUser)
+    },
+    {
+      onError: (err: AxiosError) => {
+        setError(err.response?.data)
+      },
+      onSuccess: () => {
+        setError(undefined)
+      },
+    }
+  )
+
   const {
     isLoading: isPictureLoading,
     data: pictureData,
@@ -51,12 +71,12 @@ export const useEdituser = (onSuccess: () => void) => {
     }
   )
 
-  const editUserResponse: User | undefined = data?.data || undefined
+  const editUserResponse: User | undefined = data?.data || userPictureData?.data || undefined
   const editPictureResponse: any = pictureData?.data || undefined
 
   useEffect(() => {
     if (editPictureResponse) {
-      editUser(
+      editUserPicture(
         sanitizeData(
           {
             ...currentUser,
@@ -88,6 +108,6 @@ export const useEdituser = (onSuccess: () => void) => {
     editPictureResponse,
     editUserResponse,
     error,
-    isLoading: isLoading || isPictureLoading,
+    isLoading: isLoading || isPictureLoading || isUserPictureLoading,
   }
 }

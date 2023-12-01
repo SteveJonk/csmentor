@@ -12,6 +12,7 @@ import Typography from '@mui/material/Typography'
 
 import {
   Checkbox,
+  CircularProgress,
   FormControl,
   FormControlLabel,
   InputLabel,
@@ -48,7 +49,7 @@ const Transition = forwardRef(function Transition(
 
 export const MyAccountDrawer = ({ isOpen, onClose }: Props) => {
   const { currentUser } = useCurrentuser()
-  const { editUser, editPicture, error } = useEdituser(onClose)
+  const { editUser, editPicture, isLoading, error } = useEdituser(onClose)
   const { options } = userUserOptions()
   const { register, handleSubmit, reset, watch } = useForm<User>()
   const isMentor = watch('acf.is_mentor')
@@ -115,6 +116,8 @@ export const MyAccountDrawer = ({ isOpen, onClose }: Props) => {
                 variant="contained"
                 component="label"
                 sx={{ width: 'fit-content', marginY: 1 }}
+                disabled={isLoading}
+                endIcon={isLoading && <CircularProgress style={{ color: 'white' }} size={20} />}
               >
                 Change Picture
                 <input type="file" hidden onChange={handleProfilePicture} />
@@ -150,7 +153,12 @@ export const MyAccountDrawer = ({ isOpen, onClose }: Props) => {
                   </Typography>
                 </>
               )}
-              <Button variant="contained" type="submit">
+              <Button
+                variant="contained"
+                type="submit"
+                disabled={isLoading}
+                endIcon={isLoading && <CircularProgress style={{ color: 'white' }} size={20} />}
+              >
                 Save
               </Button>
             </Grid>
