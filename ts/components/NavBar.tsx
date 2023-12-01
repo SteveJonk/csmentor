@@ -27,18 +27,10 @@ export const NavBar = ({ refetchAll }: NavBarProps) => {
       <AppBar position="relative" color="inherit">
         <Toolbar>
           <Box sx={{ flexGrow: 1 }}>
-            <img src={`${config.themeFolder}/assets/logo-cropped.png`} height={50} />
+            <a href="/">
+              <img src={`${config.themeFolder}/assets/logo-cropped.png`} height={50} />
+            </a>
           </Box>
-
-          <Button
-            component={Link}
-            href="/"
-            variant="text"
-            color="secondary"
-            sx={{ marginRight: 1 }}
-          >
-            Home
-          </Button>
           {config.userLoggedIn ? (
             <Button
               onClick={() => setIsAccountOpen(true)}

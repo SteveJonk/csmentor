@@ -8,7 +8,7 @@ import { User } from './../interfaces/User'
 import { useCurrentuser } from './useCurentUser'
 import { userUserOptions } from './useUserOptions'
 
-export const useEdituser = () => {
+export const useEdituser = (onSuccess: () => void) => {
   const { currentUser, refetch } = useCurrentuser()
   const { options } = userUserOptions()
   const [error, setError] = useState()
@@ -25,6 +25,10 @@ export const useEdituser = () => {
     {
       onError: (err: AxiosError) => {
         setError(err.response?.data)
+      },
+      onSuccess: () => {
+        onSuccess()
+        setError(undefined)
       },
     }
   )
@@ -71,10 +75,10 @@ export const useEdituser = () => {
   useEffect(() => {
     if (error) {
       console.error(error)
-      alert(
-        'Something went wrong while updating your profile. Please contact support with the following error: ' +
-          JSON.stringify(error)
-      )
+      // alert(
+      //   'Something went wrong while updating your profile. Please contact support with the following error: ' +
+      //     JSON.stringify(error)
+      // )
     }
   }, [error])
 

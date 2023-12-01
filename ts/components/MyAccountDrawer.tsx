@@ -48,7 +48,7 @@ const Transition = forwardRef(function Transition(
 
 export const MyAccountDrawer = ({ isOpen, onClose }: Props) => {
   const { currentUser } = useCurrentuser()
-  const { editUser, editPicture, error } = useEdituser()
+  const { editUser, editPicture, error } = useEdituser(onClose)
   const { options } = userUserOptions()
   const { register, handleSubmit, reset, watch } = useForm<User>()
   const isMentor = watch('acf.is_mentor')
@@ -76,7 +76,6 @@ export const MyAccountDrawer = ({ isOpen, onClose }: Props) => {
 
   const onSubmit: SubmitHandler<User> = (data) => {
     editUser(sanitizeData(data, options))
-    onClose()
   }
 
   return (
@@ -140,6 +139,17 @@ export const MyAccountDrawer = ({ isOpen, onClose }: Props) => {
               />
             ))}
             <Grid item xs={12} mb={2}>
+              {error && (
+                <>
+                  <Typography variant="body1" color="red">
+                    Something went wrong while updating your profile. Please contact support with
+                    the following error:
+                  </Typography>
+                  <Typography variant="subtitle2" color="red" marginBottom={2}>
+                    {JSON.stringify(error)}
+                  </Typography>
+                </>
+              )}
               <Button variant="contained" type="submit">
                 Save
               </Button>
