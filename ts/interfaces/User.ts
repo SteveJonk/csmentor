@@ -38,6 +38,7 @@ export interface Acf {
   extra_skills?: string[]
   languages?: string[]
   price?: string
+  validated_member?: boolean
 }
 
 export interface ProfilePicture {

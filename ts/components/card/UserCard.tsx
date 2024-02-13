@@ -1,6 +1,7 @@
 import EmailIcon from '@mui/icons-material/Email'
 import LanguageIcon from '@mui/icons-material/Language'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
+import StarIcon from '@mui/icons-material/Star'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Divider from '@mui/material/Divider'
@@ -17,7 +18,6 @@ interface Props {
 
 export const UserCard = ({ user, onClickViewProfile }: Props) => {
   const previewText = user.acf.about_me.slice(0, 300)
-
   return (
     <Paper elevation={1} sx={{ marginBottom: 2 }}>
       <Box padding={2}>
@@ -72,15 +72,23 @@ export const UserCard = ({ user, onClickViewProfile }: Props) => {
               textAlign: { xs: 'left', sm: 'right' },
             }}
           >
-            {/* <Typography
-            variant="h2"
-            sx={{ display: 'flex', gap: 0.5, justifyContent: { sm: 'flex-end' } }}
-          >
-            <StarIcon color="info" />
-            4.5
-          </Typography>
-          <Typography variant="body1">6 Reviews</Typography> */}
-            {/* <Typography variant="body2">{`€${user.acf.price} / hour`}</Typography> */}
+            <Typography variant="body1">
+              {parseInt(user.acf.price) > 0 ? `€${user.acf.price} / hour` : 'Free'}
+            </Typography>
+            {user.acf.validated_member && (
+              <Typography
+                variant="body2"
+                sx={{
+                  display: 'flex',
+                  gap: 0.5,
+                  justifyContent: { sm: 'flex-end' },
+                  alignItems: 'center',
+                }}
+              >
+                Validated Member
+                <StarIcon color="info" />
+              </Typography>
+            )}
           </Grid>
         </Grid>
         <Divider />
