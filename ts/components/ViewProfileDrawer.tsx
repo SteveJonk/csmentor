@@ -1,5 +1,6 @@
 import { Close, Email, Language, LinkedIn, LocationOn } from '@mui/icons-material'
 
+import StarIcon from '@mui/icons-material/Star'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
@@ -79,7 +80,23 @@ export const ViewProfileDrawer = ({ isOpen, onClose, user }: Props) => {
               <Typography variant="h3" marginBottom={1} color="grey">
                 {user.acf.job}
               </Typography>
-              {/* <Typography variant="body2">€{user.acf.price} / hour</Typography> */}
+              <Typography variant="body1">
+                {parseInt(user.acf.price) > 0 ? `€${user.acf.price} / hour` : 'Free'}
+              </Typography>
+              {user.acf.validated_member && (
+                <Typography
+                  variant="body2"
+                  sx={{
+                    marginBottom: 1,
+                    display: 'flex',
+                    gap: 0.5,
+                    alignItems: 'center',
+                  }}
+                >
+                  Validated Member
+                  <StarIcon color="info" />
+                </Typography>
+              )}
               <Typography
                 variant="body2"
                 color="grey"
