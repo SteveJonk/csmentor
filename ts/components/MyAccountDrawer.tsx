@@ -180,6 +180,7 @@ interface IUserField {
 const UserField = ({ field, fieldMeta, user, register, isMentor }: IUserField) => {
   const fieldsToIgnore = [
     'profile_picture',
+    'validated_member',
     // 'is_mentor',
     // 'about_me',
     // 'price',

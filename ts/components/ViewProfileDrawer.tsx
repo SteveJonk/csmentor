@@ -188,6 +188,7 @@ const UserField = ({ field, user }: IUserField) => {
     'languages',
     'job',
     'linkedin',
+    'validated_member',
   ]
   if (fieldsToIgnore.find((fieldToIgnore) => fieldToIgnore === field)) {
     return null
