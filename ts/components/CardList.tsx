@@ -19,7 +19,7 @@ export const CardList = ({ users, onClickViewProfile }: Props) => (
           </Grid>
         ))
       ) : (
-        <Typography variant="h2" textAlign="center">
+        <Typography variant="h2" textAlign="center" width="100%">
           Could not find a mentor with those filters
         </Typography>
       )}

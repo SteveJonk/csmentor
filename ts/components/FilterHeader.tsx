@@ -1,5 +1,7 @@
 import styled from '@emotion/styled'
+import Checkbox from '@mui/material/Checkbox'
 import Container from '@mui/material/Container'
+import FormControlLabel from '@mui/material/FormControlLabel'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import { FormSelect } from './form/FormSelect'
@@ -26,6 +28,7 @@ export const FilterHeader = ({ filters }) => {
       csSkills,
       yearsOfExperience,
       extraSkills,
+      validatedMember,
     },
     filterStateChange: {
       setName,
@@ -36,6 +39,7 @@ export const FilterHeader = ({ filters }) => {
       setCSSkills,
       setYearsOfExperience,
       setExtraSkills,
+      setValidatedMember,
     },
     options: {
       countryOptions,
@@ -112,6 +116,15 @@ export const FilterHeader = ({ filters }) => {
               label="Extra skills"
               options={extraSkillsOptions}
               selectedValue={extraSkills}
+            />
+          </Grid>
+          <Grid item xs={6} sm={3}>
+            <FormControlLabel
+              value="top"
+              onChange={() => setValidatedMember(!validatedMember)}
+              control={<Checkbox checked={validatedMember} />}
+              label="Validated Member"
+              labelPlacement="end"
             />
           </Grid>
         </Grid>

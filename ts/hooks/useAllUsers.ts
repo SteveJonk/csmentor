@@ -17,6 +17,7 @@ export const useAllUsers = (filters) => {
     csSkills,
     yearsOfExperience,
     extraSkills,
+    validatedMember,
   } = filters
 
   const [error, setError] = useState()
@@ -40,6 +41,7 @@ export const useAllUsers = (filters) => {
     csSkills,
     yearsOfExperience,
     extraSkills,
+    validatedMember,
   }).reduce(
     (acc, [key, value]) =>
       value ? acc + `&${toSnakeCase(key)}=${encodeURIComponent(value as string)}` : acc,
@@ -71,6 +73,7 @@ export const useAllUsers = (filters) => {
     csSkills,
     yearsOfExperience,
     extraSkills,
+    validatedMember,
   ])
 
   const users: User[] | undefined = data?.data || []

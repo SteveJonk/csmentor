@@ -54,10 +54,13 @@ add_filter('rest_user_query', function ($args, $request) {
 add_filter('rest_user_query', function ($args) {
 
     $ignore = array('page', 'per_page', 'search', 'order', 'orderby', 'slug', 'acf_format', 'name');
-    $filters = array('name', 'country', 'languages', 'seniority_level', 'specialisations', 'cs_skills', 'years_of_experience', 'extra_skills');
+    $filters = array('name', 'country', 'languages', 'seniority_level', 'specialisations', 'cs_skills', 'years_of_experience', 'extra_skills', 'validated_member');
 
     foreach ($_GET as $key => $value) {
         if (!in_array($key, $ignore) && in_array($key, $filters)) {
+            if ($key === 'validated_member') {
+                $value = $value === 'true' ? 1 : 0;
+            }
             $args['meta_query'][] = array(
                 'key'   => $key,
                 'value' => $value,

@@ -124,11 +124,11 @@ export const MyAccountDrawer = ({ isOpen, onClose }: Props) => {
               </Button>
             </Grid>
             <Grid item xs={12} md={4}>
-              <TextField label="Name" {...register('name')} fullWidth />
+              <TextField label="Name" {...register('name')} fullWidth required />
             </Grid>
 
             <Grid item xs={12} md={4}>
-              <TextField label="Email" {...register('email')} fullWidth />
+              <TextField label="Email" {...register('email')} fullWidth required />
             </Grid>
 
             {Object.entries(options?.acf?.properties || {}).map(([key, value]) => (
@@ -269,7 +269,12 @@ const UserField = ({ field, fieldMeta, user, register, isMentor }: IUserField) =
 
   return (
     <Grid key={field} item xs={12} md={4}>
-      <TextField label={toSentence(field)} {...register(`acf.${field}` as any)} fullWidth />
+      <TextField
+        label={toSentence(field)}
+        {...register(`acf.${field}` as any)}
+        required={fieldMeta.required}
+        fullWidth
+      />
     </Grid>
   )
 }

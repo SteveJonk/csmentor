@@ -12,6 +12,7 @@ export const useFilters = () => {
   const [csSkills, setCSSkills] = useState('')
   const [yearsOfExperience, setYearsOfExperience] = useState('')
   const [extraSkills, setExtraSkills] = useState('')
+  const [validatedMember, setValidatedMember] = useState(false)
 
   //TODO: Later locatie implementeren
   const [location, setLocation] = useState('')
@@ -42,6 +43,7 @@ export const useFilters = () => {
       csSkills,
       yearsOfExperience,
       extraSkills,
+      validatedMember,
     },
     filterStateChange: {
       setName,
@@ -52,6 +54,7 @@ export const useFilters = () => {
       setCSSkills,
       setYearsOfExperience,
       setExtraSkills,
+      setValidatedMember,
     },
     options: {
       countryOptions,
