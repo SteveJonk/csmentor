@@ -13,17 +13,17 @@
             'numberposts' => 4,
             'post__not_in' => array($post->ID)
         )); ?>
-    <section class="related-posts">
-        <h2>Related posts</h2>
-        <div class="post-list">
-            <?php
+        <section class="related-posts">
+            <h2>Related posts</h2>
+            <div class="post-list">
+                <?php
                 if ($related) foreach ($related as $post) {
                     setup_postdata($post);
                     get_template_part('template-parts/post-card');
                 }
                 wp_reset_postdata(); ?>
-        </div>
-    </section>
+            </div>
+        </section>
     <?php } ?>
 </div>
 
