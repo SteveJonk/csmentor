@@ -17,6 +17,7 @@
 @import 'node_modules/@glidejs/glide/src/assets/sass/glide.core'; // Required Core Stylesheet
 
 /* Base */
+@import './fonts';
 @import './screens';
 @import './variables';
 @import './utils';
@@ -24,25 +25,25 @@
 @import './links';
 
 /* Components  */
-@import './components/container';
-@import './components/admin-login';
-@import './components/section';
-@import './components/header';
-@import './components/footer';
-@import './components/image';
-@import './components/columns';
-@import './components/card';
-@import './components/carousel';
-@import './components/forms';
-@import './components/post-header';
-@import './components/post-card';
-@import './components/post-list';
-@import './components/tag-list';
-@import './components/pagination';
-@import './components/product-detail-page';
-@import './components/product-list-page';
-@import './components/woocommerce-general-elements';
-@import './components/account';
+@import './components/v1/container';
+@import './components/v1/admin-login';
+@import './components/v1/section';
+@import './components/v1/header';
+@import './components/v1/footer';
+@import './components/v1/image';
+@import './components/v1/columns';
+@import './components/v1/card';
+@import './components/v1/carousel';
+@import './components/v1/forms';
+@import './components/v1/post-header';
+@import './components/v1/post-card';
+@import './components/v1/post-list';
+@import './components/v1/tag-list';
+@import './components/v1/pagination';
+@import './components/v1/product-detail-page';
+@import './components/v1/product-list-page';
+@import './components/v1/woocommerce-general-elements';
+@import './components/v1/account';
 
 /* Base stuff */
 html {
