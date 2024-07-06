@@ -24,7 +24,7 @@
 @import './typography';
 @import './links';
 
-/* Components  */
+/* Components V1 */
 @import './components/v1/container';
 @import './components/v1/admin-login';
 @import './components/v1/section';
@@ -44,6 +44,9 @@
 @import './components/v1/product-list-page';
 @import './components/v1/woocommerce-general-elements';
 @import './components/v1/account';
+
+/* Components V1 */
+@import './components/v2/container';
 
 /* Base stuff */
 html {

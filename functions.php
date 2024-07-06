@@ -33,6 +33,11 @@ function theme_features()
     add_theme_support('post-thumbnails');
     add_post_type_support('post', 'page-attributes');
 
+    add_theme_support("appearance-tools");
+    add_theme_support("align-wide");
+    add_theme_support("editor-styles");
+    add_editor_style("editor.css");
+
     add_image_size('header', 1280, 0);
 };
 

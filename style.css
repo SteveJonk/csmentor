@@ -222,7 +222,7 @@ a img:hover {
 .wp-block-button .wp-element-button.wp-block-button__link {
   padding: 0.6em 2.5em;
 }
-/* Components  */
+/* Components V1 */
 .container,
 .is-style-container,
 .is-style-container-many-columns {
@@ -1071,6 +1071,11 @@ article ._form ._button-wrapper button {
   border: none;
   margin: 1em 0;
   padding: 0;
+}
+/* Components V1 */
+div.is-style-top-radius {
+  border-bottom-right-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
 }
 /* Base stuff */
 html {

@@ -29,6 +29,14 @@ register_block_style(
 );
 
 register_block_style(
+    'core/group',
+    array(
+        'name'         => 'top-radius',
+        'label'        => __('Top Radius', 'textdomain'),
+    )
+);
+
+register_block_style(
     'core/columns',
     array(
         'name'         => 'container',
