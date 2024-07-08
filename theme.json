@@ -22,6 +22,11 @@
           "color": "#00072F"
         },
         {
+          "name": "Grey 200",
+          "slug": "grey-200",
+          "color": "#CCCDD5"
+        },
+        {
           "name": "Grey 300",
           "slug": "grey-300",
           "color": "#7F8398"
@@ -90,6 +95,14 @@
         "spacing": {
           "blockGap": true
         }
+      }
+    }
+  },
+  "styles": {
+    "blocks": {
+      "core/separator": {
+        "color": { "background": " var(--wp--preset--color--grey-200)" },
+        "border": { "width": "1px" }
       }
     }
   }

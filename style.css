@@ -214,6 +214,9 @@ a {
 .is-style-metric strong {
   font-size: 55px;
 }
+a {
+  text-decoration: none;
+}
 a img {
   transition: opacity 0.2s;
 }

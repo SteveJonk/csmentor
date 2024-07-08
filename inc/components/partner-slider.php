@@ -24,7 +24,7 @@ function partner_slider_function($atts)
                     $post->the_post();
                 ?>
             <li class="glide__slide">
-                <a href="<?php echo wp_strip_all_tags(get_the_content()); ?>">
+                <a href="<?php echo wp_strip_all_tags(get_the_content()); ?>" target="_blank">
                     <img src="<?php echo get_the_post_thumbnail_url(); ?>" height=40 />
                 </a>
                 <?php } ?>
