@@ -1,0 +1,15 @@
+#partner-slider {
+  & .glide {
+    &__slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      & a {
+        & img {
+          width: auto;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
