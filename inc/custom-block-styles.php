@@ -96,6 +96,15 @@ register_block_style(
     )
 );
 
+
+register_block_style(
+    'core/cover',
+    array(
+        'name'         => 'clipped-header',
+        'label'        => __('Clipped header', 'textdomain'),
+    )
+);
+
 /**
  * Text block styles
  */

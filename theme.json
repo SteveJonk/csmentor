@@ -9,7 +9,27 @@
         {
           "name": "Primary",
           "slug": "primary",
-          "color": "#ff3951"
+          "color": "#FF557C"
+        },
+        {
+          "name": "Secondary",
+          "slug": "secondary",
+          "color": "#1839F2"
+        },
+        {
+          "name": "Black",
+          "slug": "black",
+          "color": "#00072F"
+        },
+        {
+          "name": "Grey 300",
+          "slug": "grey-300",
+          "color": "#7F8398"
+        },
+        {
+          "name": "Primary Dark",
+          "slug": "primary-dark",
+          "color": "#00072F"
         }
       ]
     },
@@ -25,7 +45,7 @@
       "blockGap": true
     },
     "typography": {
-      "fluid": true,
+      "fluid": false,
       "fontSizes": [
         {
           "name": "Small",
@@ -40,8 +60,7 @@
         {
           "name": "Large",
           "slug": "large",
-          "size": "20px",
-          "fluid": false
+          "size": "20px"
         },
         {
           "name": "Extra Large",
@@ -66,20 +85,10 @@
         "spacing": {
           "blockGap": true
         }
-      }
-    }
-  },
-  "styles": {
-    "color": {
-      "text": "var(--wp--preset--color--neutral-600)"
-    },
-    "spacing": {
-      "blockGap": "30px"
-    },
-    "blocks": {
-      "core/heading": {
-        "color": {
-          "text": "var(--wp--preset--color--neutral-800)"
+      },
+      "core/image": {
+        "spacing": {
+          "blockGap": true
         }
       }
     }
