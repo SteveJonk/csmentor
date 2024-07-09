@@ -40,6 +40,16 @@
           "name": "Light Blue",
           "slug": "light-blue",
           "color": "#1839F207"
+        },
+        {
+          "name": "Light Pink",
+          "slug": "light-pink",
+          "color": "#FFEEF2"
+        },
+        {
+          "name": "Light Purple",
+          "slug": "light-purple",
+          "color": "#EFF1FE"
         }
       ]
     },

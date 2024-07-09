@@ -96,6 +96,13 @@ register_block_style(
     )
 );
 
+register_block_style(
+    'core/image',
+    array(
+        'name'         => 'divider',
+        'label'        => __('Divider', 'textdomain'),
+    )
+);
 
 register_block_style(
     'core/cover',

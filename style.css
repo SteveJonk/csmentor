@@ -242,7 +242,7 @@ a img:hover {
   }
 }
 .wp-block-group {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 .wp-block-group.is-style-background {
   background-image: url("./assets/bg.svg");
@@ -1074,6 +1074,10 @@ article ._form ._button-wrapper button {
 div.is-style-top-radius {
   border-bottom-right-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
+  margin-top: -40px;
+}
+div ~ .is-style-top-radius {
+  padding-bottom: 40px;
 }
 .is-style-clipped-header {
   aspect-ratio: 491/753;
@@ -1100,6 +1104,9 @@ div.is-style-top-radius {
 }
 .is-style-clipped-header > .wp-block-cover__inner-container .wp-block-group.is-vertical div:nth-of-type(2) {
   margin-right: auto;
+}
+.is-style-divider {
+  transform: translateY(-50%);
 }
 p:has(img) {
   display: flex;

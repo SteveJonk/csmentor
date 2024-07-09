@@ -2,5 +2,10 @@ div {
   &.is-style-top-radius {
     border-bottom-right-radius: 0 !important;
     border-bottom-left-radius: 0 !important;
+    margin-top: -40px;
   }
+}
+
+div ~ .is-style-top-radius {
+  padding-bottom: 40px;
 }

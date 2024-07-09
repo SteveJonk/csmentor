@@ -10,7 +10,7 @@
 }
 
 .wp-block-group {
-  overflow-x: hidden;
+  overflow-x: clip;
   &.is-style-background {
     background-image: url('./assets/bg.svg');
     background-repeat: no-repeat;
