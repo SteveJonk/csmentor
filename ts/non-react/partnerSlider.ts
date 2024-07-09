@@ -13,6 +13,7 @@ if (document.getElementById('partner-slider')) {
     breakpoints: {
       530: {
         perView: 2,
+        peek: 10,
       },
     },
   })

@@ -340,7 +340,7 @@ section.wp-block-group {
   justify-self: flex-start;
   margin-right: auto;
 }
-@media (max-width: 530px) {
+@media (max-width: 769px) {
   .header__nav {
     position: absolute;
     top: 100%;
@@ -392,7 +392,7 @@ section.wp-block-group {
 .header__nav ul li .sub-menu > li > a {
   text-wrap: nowrap;
 }
-@media (max-width: 530px) {
+@media (max-width: 769px) {
   .header__nav ul li .sub-menu {
     position: static;
     flex-direction: column;
@@ -413,7 +413,7 @@ section.wp-block-group {
 .header__nav ul li.show-sub-menu .sub-menu {
   display: flex;
 }
-@media (max-width: 530px) {
+@media (max-width: 769px) {
   .header__nav ul {
     flex-direction: column;
     gap: 8px;
@@ -1121,6 +1121,8 @@ p:has(img) {
 #partner-slider .glide__slide a img {
   width: auto;
   max-width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .mentor-grid {
   max-width: 100%;
@@ -1156,8 +1158,12 @@ p:has(img) {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto auto; /* Two rows to handle the vertical shift */
-  grid-template-areas: "col1 col2-top" "col1 col2"; /* Defining areas for grid items */
   grid-gap: 20px;
+}
+@media (max-width: 769px) {
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
 }
 .testimonial-grid__card {
   display: flex;
@@ -1167,9 +1173,16 @@ p:has(img) {
   border-radius: 20px;
   padding: 40px;
 }
-.testimonial-grid__card:nth-child(2n) {
-  margin-top: 60px; /* Adding padding to the second column */
-  margin-bottom: -60px;
+@media (max-width: 530px) {
+  .testimonial-grid__card {
+    flex-direction: column;
+  }
+}
+@media (min-width: 769px) {
+  .testimonial-grid__card:nth-child(2n) {
+    margin-top: 60px; /* Adding padding to the second column */
+    margin-bottom: -60px;
+  }
 }
 .testimonial-grid__card__left img {
   width: 100px;
@@ -1189,6 +1202,10 @@ p:has(img) {
   color: var(--wp--preset--color--grey-300);
   margin-bottom: 15px !important;
   font-weight: 400 !important;
+}
+.wp-block-video {
+  border-radius: 30px;
+  overflow: hidden;
 }
 /* Base stuff */
 html {

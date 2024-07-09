@@ -2,10 +2,10 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto auto; /* Two rows to handle the vertical shift */
-  grid-template-areas:
-    'col1 col2-top'
-    'col1 col2'; /* Defining areas for grid items */
   grid-gap: 20px;
+  @include Tablet {
+    grid-template-columns: 1fr;
+  }
   &__card {
     display: flex;
     gap: 20px;
@@ -13,9 +13,14 @@
     background-color: white;
     border-radius: 20px;
     padding: 40px;
+    @include Mobile {
+      flex-direction: column;
+    }
     &:nth-child(2n) {
-      margin-top: 60px; /* Adding padding to the second column */
-      margin-bottom: -60px;
+      @include onlyDesktop {
+        margin-top: 60px; /* Adding padding to the second column */
+        margin-bottom: -60px;
+      }
     }
     &__left {
       & img {
