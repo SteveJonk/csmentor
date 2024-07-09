@@ -1,0 +1,26 @@
+.mentor-grid {
+  max-width: 100%;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(10, minmax(1px, 1fr));
+  gap: 30px;
+  @include Tablet {
+    grid-template-columns: repeat(5, minmax(1px, 1fr));
+  }
+  @include Mobile {
+    grid-template-columns: repeat(2, minmax(1px, 1fr));
+  }
+  &__card {
+    width: 100%;
+    & img {
+      width: 100%;
+      border-radius: 50%;
+      aspect-ratio: 1/1;
+    }
+  }
+  &__name {
+    word-break: break-word;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+}

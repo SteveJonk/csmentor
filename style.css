@@ -237,7 +237,7 @@ a img:hover {
   .container,
   .is-style-container,
   .is-style-container-many-columns {
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
   }
 }
@@ -1114,6 +1114,36 @@ p:has(img) {
 #partner-slider .glide__slide a img {
   width: auto;
   max-width: 100%;
+}
+.mentor-grid {
+  max-width: 100%;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(10, minmax(1px, 1fr));
+  gap: 30px;
+}
+@media (max-width: 769px) {
+  .mentor-grid {
+    grid-template-columns: repeat(5, minmax(1px, 1fr));
+  }
+}
+@media (max-width: 530px) {
+  .mentor-grid {
+    grid-template-columns: repeat(2, minmax(1px, 1fr));
+  }
+}
+.mentor-grid__card {
+  width: 100%;
+}
+.mentor-grid__card img {
+  width: 100%;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+}
+.mentor-grid__name {
+  word-break: break-word;
+  font-size: 0.8rem;
+  text-align: center;
 }
 /* Base stuff */
 html {

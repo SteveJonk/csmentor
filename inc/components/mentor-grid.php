@@ -12,8 +12,18 @@ function mentor_grid_function($atts)
     $args  = array(
         'number' => 20,
         'orderby' => 'rand',
-        'meta_key' => 'is_mentor',
-        'meta_value' => true,
+        'meta_query' => array(
+            array(
+                'key' => 'is_mentor',
+                'value' => true,
+                'compare' => 'LIKE',
+            ),
+            array(
+                'key' => 'profile_picture',
+                'value'   => array(''),
+                'compare' => 'NOT IN'
+            )
+        )
     );
 
     // Create the WP_User_Query object
@@ -30,12 +40,13 @@ function mentor_grid_function($atts)
             foreach ($mentors as $mentor) {
                 $mentor_info = get_userdata($mentor->ID);
                 $profile_picture = get_field('profile_picture', 'user_' . $mentor->ID);
+                $job = get_field('job', 'user_' . $mentor->ID);
                 $profile_picture_url = $profile_picture['sizes']['thumbnail'];
 
         ?>
                 <div class="mentor-grid__card">
                     <img src="<?php echo $profile_picture_url; ?>" alt="<?php echo esc_attr($profile_picture['alt']); ?>" />
-                    <p class="mentor-grid__name"><?php echo $mentor_info->display_name; ?></p>
+                    <p class="mentor-grid__name"><?php echo $job; ?></p>
                 </div>
         <?php }
         } else {
