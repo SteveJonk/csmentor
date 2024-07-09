@@ -1,0 +1,44 @@
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto; /* Two rows to handle the vertical shift */
+  grid-template-areas:
+    'col1 col2-top'
+    'col1 col2'; /* Defining areas for grid items */
+  grid-gap: 20px;
+  &__card {
+    display: flex;
+    gap: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+    background-color: white;
+    border-radius: 20px;
+    padding: 40px;
+    &:nth-child(2n) {
+      margin-top: 60px; /* Adding padding to the second column */
+      margin-bottom: -60px;
+    }
+    &__left {
+      & img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+      }
+    }
+    &__right {
+      & h4 {
+        margin: 0;
+        margin-bottom: 5px;
+        font-weight: 600;
+      }
+      & p {
+        font-size: 16px;
+        margin-bottom: 0;
+      }
+      &__subtitle {
+        color: var(--wp--preset--color--grey-300);
+        margin-bottom: 15px !important;
+        font-weight: 400 !important;
+      }
+    }
+  }
+}

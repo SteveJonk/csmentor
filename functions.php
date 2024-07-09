@@ -15,6 +15,7 @@ include "inc/react-components.php";
 include "inc/custom-post-types/galleries.php";
 include "inc/custom-post-types/partners.php";
 include "inc/custom-post-types/testimonials.php";
+include "inc/components/testimonial-grid.php";
 include "inc/components/testimonial-slider.php";
 include "inc/components/partner-slider.php";
 include "inc/components/gallery-slider.php";
