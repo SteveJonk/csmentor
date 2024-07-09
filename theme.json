@@ -35,6 +35,11 @@
           "name": "Primary Dark",
           "slug": "primary-dark",
           "color": "#00072F"
+        },
+        {
+          "name": "Light Blue",
+          "slug": "light-blue",
+          "color": "#1839F207"
         }
       ]
     },
