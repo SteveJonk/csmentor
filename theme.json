@@ -118,6 +118,9 @@
       "core/separator": {
         "color": { "background": " var(--wp--preset--color--grey-200)" },
         "border": { "width": "1px" }
+      },
+      "core/social-link": {
+        "border": { "radius": "0" }
       }
     }
   }
