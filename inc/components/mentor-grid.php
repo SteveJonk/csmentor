@@ -34,25 +34,26 @@ function mentor_grid_function($atts)
 
     ob_start(); ?>
 
-    <div class="mentor-grid">
-        <?php
+<div class="mentor-grid">
+    <?php
         if ($mentors) {
             foreach ($mentors as $mentor) {
-                $mentor_info = get_userdata($mentor->ID);
                 $profile_picture = get_field('profile_picture', 'user_' . $mentor->ID);
                 $job = get_field('job', 'user_' . $mentor->ID);
                 $profile_picture_url = $profile_picture['sizes']['thumbnail'];
 
         ?>
-                <div class="mentor-grid__card">
-                    <img src="<?php echo $profile_picture_url; ?>" alt="<?php echo esc_attr($profile_picture['alt']); ?>" />
-                    <p class="mentor-grid__name"><?php echo $job; ?></p>
-                </div>
-        <?php }
+    <div class="mentor-grid__card">
+        <a href="/mentorfinder">
+            <img src="<?php echo $profile_picture_url; ?>" alt="<?php echo esc_attr($profile_picture['alt']); ?>" />
+            <p class="mentor-grid__name"><?php echo $job; ?></p>
+        </a>
+    </div>
+    <?php }
         } else {
             echo '<h2>No mentors found</h2>';
         } ?>
-    </div>
+</div>
 <?php return ob_get_clean();
     wp_reset_postdata();
 }
