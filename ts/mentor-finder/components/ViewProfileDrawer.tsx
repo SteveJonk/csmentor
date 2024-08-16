@@ -14,11 +14,11 @@ import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import { TransitionProps } from '@mui/material/transitions'
 import { ReactElement, forwardRef } from 'react'
-import { config, paths } from '../config/config'
+import { config, paths } from '../../config/config'
+import { toSentence } from '../../utils/toSentence'
 import { userUserOptions } from '../hooks/useUserOptions'
 import { User } from '../interfaces/User'
 import { CSThemeVars } from '../theme/CSThemeVars'
-import { toSentence } from '../utils/toSentence'
 // TODO: Add profile fields
 
 interface Props {

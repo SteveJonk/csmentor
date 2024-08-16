@@ -7,7 +7,7 @@ import LoginIcon from '@mui/icons-material/Login'
 import PersonIcon from '@mui/icons-material/Person'
 import Button from '@mui/material/Button'
 import Link from '@mui/material/Link'
-import { config, paths } from '../config/config'
+import { config, paths } from '../../config/config'
 import { MyAccountDrawer } from './MyAccountDrawer'
 
 interface NavBarProps {

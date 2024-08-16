@@ -23,15 +23,15 @@ import {
 import { TransitionProps } from '@mui/material/transitions'
 import { ReactElement, forwardRef, useEffect } from 'react'
 import { SubmitHandler, UseFormRegister, useForm } from 'react-hook-form'
-import { config } from '../config/config'
+import { config } from '../../config/config'
+import { sanitizeData } from '../../utils/sanitizeData'
+import { toSentence } from '../../utils/toSentence'
 import { useCurrentuser } from '../hooks/useCurentUser'
 import { useEdituser } from '../hooks/useEditUser'
 import { userUserOptions } from '../hooks/useUserOptions'
 import { User } from '../interfaces/User'
 import { SelectData } from '../interfaces/UserOptions'
 import { CSThemeVars } from '../theme/CSThemeVars'
-import { sanitizeData } from '../utils/sanitizeData'
-import { toSentence } from '../utils/toSentence'
 
 interface Props {
   isOpen: boolean

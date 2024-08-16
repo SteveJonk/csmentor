@@ -1,4 +1,4 @@
-import { CSQueryClientProvider } from '../../api/CSQueryClientProvider'
+import { CSQueryClientProvider } from '../../../api/CSQueryClientProvider'
 import { CSThemeProvider } from '../../theme/ThemeProvider'
 import { Main } from './Main'
 

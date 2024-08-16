@@ -1,10 +1,10 @@
 import { AxiosError } from 'axios'
 import { useEffect, useState } from 'react'
 import { useQuery } from 'react-query'
-import apiClient from '../api/apiClient'
-import { endPoints } from '../config/config'
+import apiClient from '../../api/apiClient'
+import { endPoints } from '../../config/config'
+import { toSnakeCase } from '../../utils/toSnakeCase'
 import { User } from '../interfaces/User'
-import { toSnakeCase } from '../utils/toSnakeCase'
 import useDebounce from './useDebounce'
 
 export const useAllUsers = (filters) => {

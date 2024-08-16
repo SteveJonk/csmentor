@@ -1,9 +1,9 @@
 import { AxiosError } from 'axios'
 import { useState } from 'react'
 import { useQuery } from 'react-query'
-import apiClient from '../api/apiClient'
-import { endPoints } from '../config/config'
-import { User } from '../interfaces/User'
+import apiClient from '../../api/apiClient'
+import { endPoints } from '../../config/config'
+import { User } from '../../mentor-finder/interfaces/User'
 
 export const useCurrentuser = () => {
   const [error, setError] = useState()

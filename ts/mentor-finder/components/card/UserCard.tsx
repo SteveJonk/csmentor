@@ -8,7 +8,7 @@ import Divider from '@mui/material/Divider'
 import Grid from '@mui/material/Grid'
 import Paper from '@mui/material/Paper'
 import Typography from '@mui/material/Typography'
-import { config, paths } from '../../config/config'
+import { config, paths } from '../../../config/config'
 import { User } from '../../interfaces/User'
 
 interface Props {

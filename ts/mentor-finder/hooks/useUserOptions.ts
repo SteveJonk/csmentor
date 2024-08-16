@@ -1,8 +1,8 @@
 import { AxiosError } from 'axios'
 import { useState } from 'react'
 import { useQuery } from 'react-query'
-import apiClient from '../api/apiClient'
-import { endPoints } from '../config/config'
+import apiClient from '../../api/apiClient'
+import { endPoints } from '../../config/config'
 import { UserOptions } from '../interfaces/UserOptions'
 
 export const userUserOptions = () => {

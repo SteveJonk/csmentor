@@ -1,5 +1,5 @@
-import { User } from '../interfaces/User'
-import { UserOptions } from '../interfaces/UserOptions'
+import { User } from '../mentor-finder/interfaces/User'
+import { UserOptions } from '../mentor-finder/interfaces/UserOptions'
 
 /**
  * Hacky function to distil only existing answeres in enum values of ACF.
