@@ -1,3 +1,7 @@
+import { Calendar } from '../../icons/Calendar'
+import { Location } from '../../icons/Location'
+import { removeImageScaling } from '../../utils/removeImageScaling'
+
 interface EventCardProps {
   title: string
   dateTime: string
@@ -16,12 +20,26 @@ export const EventCard = ({
   url,
 }: EventCardProps) => (
   <div className="event-card">
-    <img className="event-card__image" src={imgUrl} alt={title} />
+    <img
+      className="event-card__image"
+      height={222}
+      width={222}
+      src={removeImageScaling(imgUrl)}
+      alt={title}
+    />
     <div className="event-card__info">
       <h2>{title}</h2>
       <div className="event-card__info__datelocation">
-        <p>{dateTime}</p>
-        {location && <p>{location}</p>}
+        <p>
+          <Calendar />
+          {dateTime}
+        </p>
+        {location && (
+          <p>
+            <Location />
+            {location}
+          </p>
+        )}
       </div>
     </div>
     <a className="event-card__button" href={url} target="_blank">

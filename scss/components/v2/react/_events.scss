@@ -11,19 +11,47 @@
   display: flex;
   align-items: center;
   gap: 50px;
+
+  @include Mobile {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+  }
+
   &:nth-of-type(2n) {
     background-color: var(--wp--preset--color--blue);
   }
   &__image {
-    width: 216px;
-    height: 216px;
+    width: 222px;
+    height: 222px;
     border-radius: 20px;
     object-fit: cover;
+    @include Tablet {
+      width: 150px;
+      height: 150px;
+    }
+    @include Mobile {
+      width: 222px;
+      height: 222px;
+    }
   }
   &__info {
+    & h2 {
+      margin-bottom: 20px;
+    }
     &__datelocation {
       display: flex;
       flex-direction: column;
+      & p {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        @include Mobile {
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+        }
+      }
     }
   }
   &__button {
@@ -35,5 +63,65 @@
     font-weight: 700;
     margin-left: auto;
     text-wrap: nowrap;
+    @include Mobile {
+      margin-left: 0;
+    }
+  }
+}
+
+.filters {
+  margin-bottom: 30px;
+  display: flex;
+  gap: 10px;
+  @include Mobile {
+    flex-direction: column;
+    &__input,
+    &__text,
+    &__select {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+  }
+  &__input {
+    position: relative;
+    & svg {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 20px;
+    }
+  }
+  &__text,
+  &__select {
+    margin: 0;
+    padding: 0 14px;
+    padding-left: 50px;
+    height: 48px;
+    border: 1px solid #e6e7eb;
+    background-color: white;
+    border-radius: 10000px;
+    font-family: $text-main;
+    font-size: 16px;
+    max-width: 250px;
+    @include Mobile {
+      max-width: 100%;
+    }
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    &:focus-visible {
+      outline: none;
+      border-color: $primary-color;
+    }
+  }
+  &__select {
+    &.placeholder {
+      color: #b2b4c0;
+    }
+  }
+  &__text {
+    &::placeholder {
+      color: #b2b4c0;
+    }
   }
 }
