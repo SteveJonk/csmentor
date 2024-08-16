@@ -3,8 +3,8 @@
   grid-template-columns: 2fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-template-areas:
-    'item1 item2 item3'
-    'item1 item4 item4';
+    'item1 item2 item2'
+    'item1 item3 item4';
   gap: 40px;
   @include Mobile {
     display: flex;
@@ -49,6 +49,7 @@
       &__title {
         color: white;
         margin: 0;
+        margin-top: 10px;
       }
       &__button {
         margin: 0;
@@ -58,7 +59,6 @@
         padding: 8px 15px;
         border-radius: 1000px;
         width: fit-content;
-        margin-bottom: 10px;
         font-weight: 600;
       }
     }

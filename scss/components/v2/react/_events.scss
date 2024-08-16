@@ -1,0 +1,39 @@
+.event-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.event-card {
+  background-color: var(--wp--preset--color--light-pink);
+  padding: 40px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  &:nth-of-type(2n) {
+    background-color: var(--wp--preset--color--blue);
+  }
+  &__image {
+    width: 216px;
+    height: 216px;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+  &__info {
+    &__datelocation {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  &__button {
+    background-color: var(--wp--preset--color--primary);
+    color: white;
+    padding: 12px 21px;
+    border-radius: 1000px;
+    font-size: 16px;
+    font-weight: 700;
+    margin-left: auto;
+    text-wrap: nowrap;
+  }
+}

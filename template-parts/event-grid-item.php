@@ -11,6 +11,8 @@
                 echo 'Download';
             } ?>
         </p>
-        <h3 class="event-grid__item__content__title"><?php the_title(); ?></h3>
+        <?php if (get_the_title()) { ?>
+            <h3 class="event-grid__item__content__title"><?php the_title(); ?></h3>
+        <?php } ?>
     </div>
 </a>
