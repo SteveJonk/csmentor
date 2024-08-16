@@ -1,5 +1,15 @@
 .page-template-page-alt {
   & .header {
     background-color: var(--wp--preset--color--light-pink);
+    &__nav {
+      justify-self: flex-start;
+      margin-right: auto;
+      @include Tablet {
+        background-color: var(--wp--preset--color--light-pink);
+        & .sub-menu {
+          background-color: var(--wp--preset--color--light-pink);
+        }
+      }
+    }
   }
 }
