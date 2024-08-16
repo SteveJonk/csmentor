@@ -1,7 +1,7 @@
 <?php
 function events()
 {
-    return '<div id="events"></div>';
+    return '<div style="min-height: 200px;" id="events"></div>';
 }
 
 add_shortcode('events', 'events');
