@@ -1,4 +1,11 @@
-<?php get_header(); ?>
+<?php
+/*
+ * Template Name: Alternative Page
+ */
+
+get_header();
+
+?>
 
 <?php get_template_part('template-parts/navigation') ?>
 

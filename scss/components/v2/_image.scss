@@ -25,6 +25,12 @@
   }
 }
 
+.is-style-zoomed {
+  @include onlyDesktop {
+    transform: scale(1.1);
+  }
+}
+
 .is-style-divider {
   transform: translateY(-50%);
 }

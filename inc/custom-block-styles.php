@@ -112,6 +112,14 @@ register_block_style(
     )
 );
 
+register_block_style(
+    'core/image',
+    array(
+        'name'         => 'zoomed',
+        'label'        => __('Zoomed', 'textdomain'),
+    )
+);
+
 /**
  * Text block styles
  */

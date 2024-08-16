@@ -19,6 +19,7 @@ include "inc/components/testimonial-grid.php";
 include "inc/components/testimonial-slider.php";
 include "inc/components/partner-slider.php";
 include "inc/components/gallery-slider.php";
+include "inc/components/event-grid.php";
 include "inc/components/mentor-grid.php";
 include "inc/woocommerce/product-list-page.php";
 include "inc/woocommerce/product-detail-page.php";

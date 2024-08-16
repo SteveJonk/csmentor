@@ -17,6 +17,16 @@
       border-radius: 50%;
       aspect-ratio: 1/1;
     }
+    @include Tablet {
+      &:nth-of-type(n + 11) {
+        display: none;
+      }
+    }
+    @include Mobile {
+      &:nth-of-type(n + 5) {
+        display: none;
+      }
+    }
   }
   &__name {
     word-break: break-word;

@@ -65,7 +65,7 @@
       "blockGap": true
     },
     "typography": {
-      "fluid": false,
+      "fluid": true,
       "fontSizes": [
         {
           "name": "Small",
