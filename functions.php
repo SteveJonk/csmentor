@@ -7,11 +7,13 @@ if (!defined('ABSPATH'))
 // Include needed functions
 include "inc/inc.js.php";
 include "inc/api-mods.php";
+include "inc/api-endpoints.php";
 include "inc/login-screen.php";
 include "inc/navbar.php";
 include "inc/sidebars.php";
 include "inc/custom-block-styles.php";
-include "inc/react-components.php";
+include "inc/mentor-finder.php";
+include "inc/events.php";
 include "inc/custom-post-types/galleries.php";
 include "inc/custom-post-types/partners.php";
 include "inc/custom-post-types/testimonials.php";

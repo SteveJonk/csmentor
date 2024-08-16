@@ -1,5 +1,6 @@
 export const config = {
   apiBaseUrl: '',
+  ticketTailorBaseUrl: 'https://api.tickettailor.com',
   // @ts-ignore
   nonce: wpApiSettingsStef?.nonce,
   // @ts-ignore
@@ -18,4 +19,5 @@ export const paths = {
 export const endPoints = {
   users: '/wp-json/wp/v2/users',
   media: '/wp-json/wp/v2/media',
+  'wp-admin': '/wp-admin/admin-ajax.php',
 }

@@ -6,7 +6,7 @@ function mentor_finder()
 
     <div id="mentor-finder"></div>
 
-<?php echo  ob_get_clean();
+<?php return  ob_get_clean();
 }
 
 add_shortcode('MentorFinder', 'mentor_finder');
