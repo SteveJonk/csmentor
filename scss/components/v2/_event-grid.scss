@@ -29,6 +29,12 @@
     }
     &:nth-child(4) {
       grid-area: item4;
+      & .event-grid__item__background {
+        background-color: var(--wp--preset--color--primary);
+        & img {
+          opacity: 0.5;
+        }
+      }
     }
     &__background {
       position: absolute;
