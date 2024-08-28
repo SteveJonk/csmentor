@@ -5,3 +5,30 @@ p {
     align-items: center;
   }
 }
+
+ul {
+  &.is-style-checkmark {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+
+    padding-left: 0;
+    & li {
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      &::before {
+        content: '';
+        display: inline-block;
+        flex-shrink: 0;
+        flex-basis: 30px;
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="17" width="17"><path fill="%23ff557c" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" /></svg>');
+      }
+    }
+  }
+}

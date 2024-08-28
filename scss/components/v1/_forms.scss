@@ -7,6 +7,7 @@
     & label {
       display: inline-block;
       margin: 10px 0 5px 0;
+      color: #383b3d !important;
     }
     & ._field-wrapper {
       & input,
@@ -53,7 +54,7 @@ article {
           font-family: $text-main;
           width: 100%;
           box-sizing: border-box;
-          border: none;
+          border: 1px solid #bfbfbf;
           border-radius: 100px;
         }
         & select {

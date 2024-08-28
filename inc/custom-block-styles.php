@@ -138,3 +138,11 @@ register_block_style(
         'label'        => __('Metric', 'textdomain'),
     )
 );
+
+register_block_style(
+    'core/list',
+    array(
+        'name'         => 'checkmark',
+        'label'        => __('Checkmark', 'textdomain'),
+    )
+);

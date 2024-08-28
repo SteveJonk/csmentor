@@ -7,7 +7,7 @@ function theme_resources()
     wp_enqueue_script('main-js', get_theme_file_uri('/dist/scripts.js'), NULL, '2.1.1', array(
         'strategy'  => 'defer',
     ));
-    wp_enqueue_style('theme_main_css', get_stylesheet_uri(), NULL, '2.1.5');
+    wp_enqueue_style('theme_main_css', get_stylesheet_uri(), NULL, '2.1.7');
     wp_localize_script('api', 'wpApiSettingsStef', array(
         'nonce' => wp_create_nonce('wp_rest'),
         'themeFolder' => get_template_directory_uri(),
