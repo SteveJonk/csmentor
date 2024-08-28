@@ -4,7 +4,7 @@ function theme_resources()
 {
     wp_enqueue_script('api', get_theme_file_uri('wpApiSettings.js'), NULL, '1.0.3', false);
 
-    wp_enqueue_script('main-js', get_theme_file_uri('/dist/scripts.js'), NULL, '2.1.0', array(
+    wp_enqueue_script('main-js', get_theme_file_uri('/dist/scripts.js'), NULL, '2.1.1', array(
         'strategy'  => 'defer',
     ));
     wp_enqueue_style('theme_main_css', get_stylesheet_uri(), NULL, '2.1.5');

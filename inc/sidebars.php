@@ -25,6 +25,14 @@ function theme_sidebars()
         'before_widget' => '',
         'after_widget' => '',
     ));
+
+    register_sidebar(array(
+        'name' => 'Blog bottom',
+        'id' => 'blog-bottom',
+        'description' => 'Deze sidebar zal worden getoond onder de blogs',
+        'before_widget' => '',
+        'after_widget' => '',
+    ));
 }
 
 add_action('widgets_init', 'theme_sidebars');

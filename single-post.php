@@ -24,6 +24,15 @@
                 wp_reset_postdata(); ?>
             </div>
         </section>
+        <?php
+        if (is_active_sidebar('blog-bottom')) {
+        ?>
+            <section class="blog-bottom">
+                <?php dynamic_sidebar('blog-bottom'); ?>
+            </section>
+        <?php
+        }
+        ?>
     <?php } ?>
 </div>
 
