@@ -37,7 +37,7 @@ function create_gallery_cpt()
         'description' => __('', 'textdomain'),
         'labels' => $labels,
         'menu_icon' => 'dashicons-images-alt2',
-        'supports' => array('title', 'editor', 'thumbnail'),
+        'supports' => array('title', 'editor', 'thumbnail', 'page-attributes'),
         'taxonomies' => array(),
         'public' => true,
         'show_ui' => true,
