@@ -6,7 +6,7 @@
   border-top-left-radius: 40px;
   border-top-right-radius: 40px;
   margin-top: auto;
-
+  z-index: 2;
   @include Tablet {
     padding: 40px 20px;
     & .wp-block-columns {

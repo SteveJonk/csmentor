@@ -1,9 +1,9 @@
 import CircularProgress from '@mui/material/CircularProgress'
 import Grid from '@mui/material/Grid'
 import { useState } from 'react'
+import { AccountButton } from '../../components/AccountButton'
 import { CardList } from '../../components/CardList'
 import { FilterHeader } from '../../components/FilterHeader'
-import { NavBar } from '../../components/NavBar'
 import { ViewProfileDrawer } from '../../components/ViewProfileDrawer'
 import { useAllUsers } from '../../hooks/useAllUsers'
 import { useFilters } from '../../hooks/useFilters'
@@ -27,8 +27,8 @@ export const Main = () => {
   }
 
   return (
-    <div className="grey-bg full-page">
-      <NavBar refetchAll={refetch} />
+    <div className="grey-bg">
+      <AccountButton refetchAll={refetch} />
       <ViewProfileDrawer isOpen={isProfileOpen} onClose={handleProfileClose} user={selectedUser} />
       <FilterHeader filters={filters} />
       {!isLoading ? (
@@ -37,7 +37,7 @@ export const Main = () => {
           <CardList users={users} onClickViewProfile={handleProfileOpen} />
         </>
       ) : (
-        <div>
+        <div style={{ minHeight: 100, display: 'flex', alignItems: 'center' }}>
           <Loader />
         </div>
       )}
