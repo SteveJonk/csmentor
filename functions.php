@@ -7,7 +7,6 @@ if (!defined('ABSPATH'))
 // Include needed functions
 include "inc/inc.js.php";
 include "inc/api-mods.php";
-include "inc/api-endpoints.php";
 include "inc/login-screen.php";
 include "inc/navbar.php";
 include "inc/sidebars.php";
