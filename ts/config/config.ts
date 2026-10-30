@@ -1,6 +1,5 @@
 export const config = {
   apiBaseUrl: '',
-  ticketTailorBaseUrl: 'https://api.tickettailor.com',
   // @ts-ignore
   nonce: wpApiSettingsStef?.nonce,
   // @ts-ignore

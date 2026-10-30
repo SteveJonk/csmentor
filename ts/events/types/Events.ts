@@ -1,8 +1,3 @@
-export interface Event {
-  success?: boolean
-  data?: EventData[]
-}
-
 export interface EventData {
   object?: 'event'
   id?: string
